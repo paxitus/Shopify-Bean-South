@@ -74,12 +74,27 @@ shopify theme push --theme [THEME_ID] --store bean-south-coffee-2.myshopify.com
 
 ## Accessibility Compliance
 
-This theme is maintained to meet WCAG 2.2 Level AA standards. All contributions should:
-- Ensure proper semantic HTML
-- Maintain keyboard navigation support
-- Provide appropriate ARIA labels
-- Maintain sufficient color contrast ratios
-- Include alt text for images
+This theme is maintained to meet **WCAG 2.2 Level AA standards**. 
+
+### Accessibility Documentation
+
+- **[ACCESSIBILITY.md](./ACCESSIBILITY.md)** - Complete WCAG 2.2 Level AA guidelines with Shopify-specific code examples
+- **[ACCESSIBILITY_TESTING.md](./ACCESSIBILITY_TESTING.md)** - Step-by-step testing procedures and tools
+- **[ACCESSIBILITY_CHECKLIST.md](./ACCESSIBILITY_CHECKLIST.md)** - Quick reference checklist for development
+
+### Key Requirements
+
+All contributions must:
+- Ensure proper semantic HTML and heading hierarchy
+- Maintain full keyboard navigation support
+- Provide appropriate ARIA labels and roles
+- Maintain sufficient color contrast ratios (4.5:1 for text, 3:1 for UI)
+- Include descriptive alt text for all images
+- Pass automated accessibility testing (Lighthouse 90+)
+- Be tested with keyboard navigation
+- Be tested with screen readers
+
+See the full documentation files above for detailed guidelines and testing procedures.
 
 ## Resources
 
