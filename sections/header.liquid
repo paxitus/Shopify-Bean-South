@@ -36,6 +36,14 @@
     }
   {%- endif -%}
 
+  .header-wrapper {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .scrolled-past-header .header-wrapper {
+    box-shadow: 0 4px 16px rgba(74, 55, 40, 0.28);
+  }
+
   .menu-drawer-container {
     display: flex;
   }
@@ -151,29 +159,10 @@
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
       {%- endif -%}
-      <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-        {%- if settings.logo != blank -%}
-          <div class="header__heading-logo-wrapper">
-            {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-            {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-            {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-            {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-            {{
-              settings.logo
-              | image_url: width: 600
-              | image_tag:
-                class: 'header__heading-logo motion-reduce',
-                widths: widths,
-                height: logo_height,
-                width: settings.logo_width,
-                alt: logo_alt,
-                sizes: sizes,
-                preload: true
-            }}
-          </div>
-        {%- else -%}
-          <span class="h2">{{ shop.name }}</span>
-        {%- endif -%}
+      <a href="{{ routes.root_url }}" class="header__heading-link header__heading-link--brand link link--text focus-inset">
+        {%- assign logo_height = settings.logo_width | times: 1218 | divided_by: 1312 -%}
+        <img src="{{ 'bean-south-logo.png' | asset_url }}" alt="" class="header__brand-logo motion-reduce" width="{{ settings.logo_width }}" height="{{ logo_height }}" loading="eager" aria-hidden="true">
+        <span class="header__brand-name">{{ shop.name }}</span>
       </a>
       {%- if request.page_type == 'index' -%}
         </h1>
@@ -215,7 +204,8 @@
             }}
           </div>
         {%- else -%}
-          <span class="h2">{{ shop.name }}</span>
+          {%- assign logo_height = settings.logo_width | times: 1218 | divided_by: 1312 -%}
+          <img src="{{ 'bean-south-logo.png' | asset_url }}" alt="{{ shop.name }}" class="header__heading-logo motion-reduce" width="{{ settings.logo_width }}" height="{{ logo_height }}" loading="eager">
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
@@ -248,6 +238,21 @@
         {%- endif -%}
       </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
+
+      {%- if settings.social_instagram_link != blank or settings.social_facebook_link != blank -%}
+        <div class="header__social-icons small-hide">
+          {%- if settings.social_instagram_link != blank -%}
+            <a href="{{ settings.social_instagram_link }}" class="header__icon link focus-inset" aria-label="Instagram" target="_blank" rel="noopener">
+              <span class="svg-wrapper">{{ 'icon-instagram.svg' | inline_asset_content }}</span>
+            </a>
+          {%- endif -%}
+          {%- if settings.social_facebook_link != blank -%}
+            <a href="{{ settings.social_facebook_link }}" class="header__icon link focus-inset" aria-label="Facebook" target="_blank" rel="noopener">
+              <span class="svg-wrapper">{{ 'icon-facebook.svg' | inline_asset_content }}</span>
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
 
       {%- if shop.customer_accounts_enabled -%}
         <a
@@ -285,7 +290,7 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble" aria-label="{{ 'sections.header.cart_count' | t: count: cart.item_count }}">
         {% if cart == empty %}
           <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
         {% else %}
