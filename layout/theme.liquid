@@ -7,6 +7,11 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Poppins:wght@400;500&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Poppins:wght@400;500&display=swap"></noscript>
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -27,6 +32,34 @@
     {% endif %}
 
     {% render 'meta-tags' %}
+
+    {%- if template == 'index' -%}
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Bean South Coffee",
+        "description": "Fair trade, USDA organic, shade-grown specialty coffee roasted fresh in Americus, Georgia.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "508 West Forsyth St",
+          "addressLocality": "Americus",
+          "addressRegion": "GA",
+          "postalCode": "31709",
+          "addressCountry": "US"
+        },
+        "telephone": "+1-229-924-2468",
+        "email": "tripp@cafecampesino.com",
+        "url": "{{ shop.url }}",
+        "sameAs": [
+          "https://www.instagram.com/beansouthcoffees/",
+          "https://www.facebook.com/beansouthcoffees/"
+        ]
+      }
+      </script>
+    {%- endif -%}
+
+    <link rel="alternate" type="text/plain" title="LLMs" href="{{ 'llms.txt' | asset_url }}">
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
@@ -299,7 +332,7 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
-    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent" id="main-content-skip">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
 

@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Now shipping anywhere in the United States",
+            "text": "Fresh Roasted to Order · Free Shipping on Orders Over $XX · Subscribe for Updates · Roasted in Americus, Georgia",
             "link": ""
           }
         }
@@ -28,7 +28,7 @@
       "settings": {
         "auto_rotate": false,
         "change_slides_speed": 5,
-        "color_scheme": "scheme-4",
+        "color_scheme": "scheme-3",
         "show_line_separator": true,
         "show_social": false,
         "enable_country_selector": false,
@@ -38,7 +38,7 @@
     "header": {
       "type": "header",
       "settings": {
-        "logo_position": "middle-left",
+        "logo_position": "top-left",
         "mobile_logo_position": "center",
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
@@ -56,7 +56,7 @@
     }
   },
   "order": [
-    "announcement-bar",
-    "header"
+    "header",
+    "announcement-bar"
   ]
 }

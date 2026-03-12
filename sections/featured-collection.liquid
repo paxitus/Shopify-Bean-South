@@ -57,11 +57,12 @@
     .section-{{ section.id }} .card__media {
       padding: 20px;
     }
-    
+
     .section-{{ section.id }} .card__media .media {
       height: 250px;
     }
   }
+
 {%- endstyle -%}
 
 {%- liquid
@@ -91,11 +92,12 @@
 -%}
 
 <div
+  id="shop"
   class="color-{{ section.settings.color_scheme }} isolate gradient"
 >
   <div
     class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
-    id="collection-{{ section.id }}"
+    id="products"
     data-id="{{ section.id }}"
   >
     <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">

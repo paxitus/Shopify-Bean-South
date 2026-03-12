@@ -1,0 +1,19 @@
+# Bean South Coffee
+Fresh roasted, fair trade, USDA organic specialty coffee from Americus, Georgia.
+
+## Products
+- Dark Roast — 12oz, $19.95, available whole bean or ground drip
+- Medium Roast — 12oz, $19.95, available whole bean or ground drip
+- Decaf — 12oz, $19.95, available whole bean or ground drip
+
+## About
+Bean South Coffee is operated by Café Campesino, Georgia's first 100% fair trade and organic coffee roaster (25+ years). B Corp certified. Direct relationships with small farmer cooperatives in 14 countries.
+
+## Pages
+- Shop: /collections/coffee
+- About Us: /pages/about-us
+- Our Coffee: /pages/bean-south-coffee
+- Best of the South Blog: /blogs/best-of-the-south
+
+## Contact
+506 W Forsyth St, Americus, GA | tripp@cafecampesino.com

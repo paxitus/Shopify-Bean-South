@@ -1,6 +1,17 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
+{%- style -%}
+  @media (prefers-reduced-motion: reduce) {
+    .announcement-bar__marquee {
+      animation: none !important;
+    }
+    .announcement-bar__marquee .announcement-bar__message:last-child {
+      display: none;
+    }
+  }
+{%- endstyle -%}
+
 {%- liquid
   assign social_icons = true
   if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
@@ -27,25 +38,21 @@
     {%- endif -%}
     {%- if section.blocks.size == 1 -%}
       <div
-        class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
+        class="announcement-bar announcement-bar--marquee{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
         role="region"
         aria-label="{{ 'sections.header.announcement' | t }}"
         {{ section.blocks.first.shopify_attributes }}
       >
         {%- if section.blocks.first.settings.text != blank -%}
+          <div class="announcement-bar__marquee-wrapper">
+            <div class="announcement-bar__marquee" aria-hidden="true">
+              <span class="announcement-bar__message h5">{{ section.blocks.first.settings.text | escape }}</span>
+              <span class="announcement-bar__message h5" aria-hidden="true">{{ section.blocks.first.settings.text | escape }}</span>
+            </div>
+          </div>
           {%- if section.blocks.first.settings.link != blank -%}
-            <a
-              href="{{ section.blocks.first.settings.link }}"
-              class="announcement-bar__link link link--text focus-inset animate-arrow"
-            >
-          {%- endif -%}
-          <p class="announcement-bar__message h5">
-            <span>{{ section.blocks.first.settings.text | escape }}</span>
-            {%- if section.blocks.first.settings.link != blank -%}
-              {{- 'icon-arrow.svg' | inline_asset_content -}}
-            {%- endif -%}
-          </p>
-          {%- if section.blocks.first.settings.link != blank -%}
+            <a href="{{ section.blocks.first.settings.link }}" class="announcement-bar__link link link--text focus-inset visually-hidden" aria-label="{{ section.blocks.first.settings.text | escape }}">
+              {{ section.blocks.first.settings.text | escape }}
             </a>
           {%- endif -%}
         {%- endif -%}
