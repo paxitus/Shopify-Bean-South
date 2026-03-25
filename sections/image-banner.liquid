@@ -103,15 +103,12 @@
         style="object-position: 18% 50%;"
       >
 
-      {%- comment -%} Default hero: subtle people silhouettes (no mug overlay — photo carries the product). {%- endcomment -%}
-      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--1" aria-hidden="true">
-        {{- 'hero-silhouette-person.svg' | inline_asset_content -}}
+      {%- comment -%} Default hero: man + woman silhouettes (photo carries the product). {%- endcomment -%}
+      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--man" aria-hidden="true">
+        {{- 'hero-silhouette-man.svg' | inline_asset_content -}}
       </span>
-      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--2" aria-hidden="true">
-        {{- 'hero-silhouette-person.svg' | inline_asset_content -}}
-      </span>
-      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--3" aria-hidden="true">
-        {{- 'hero-silhouette-person.svg' | inline_asset_content -}}
+      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--woman" aria-hidden="true">
+        {{- 'hero-silhouette-woman.svg' | inline_asset_content -}}
       </span>
     </div>
   {%- endif -%}

@@ -14,12 +14,6 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "brand_information": {
-          "type": "brand_information",
-          "settings": {
-            "show_social": false
-          }
-        },
         "link_navigate": {
           "type": "link_list",
           "settings": {
@@ -50,7 +44,6 @@
         }
       },
       "block_order": [
-        "brand_information",
         "link_navigate",
         "link_categories",
         "contact",
