@@ -1,33 +1,59 @@
 /*
- * Bean South × Bustelo-inspired direction (design/inspiration-merge).
- * Keeps brand green (#2D5016) for primary actions; adds ochre/yellow + red accents.
- * Loaded after base.css; pair with Theme settings / navigation in admin.
+ * Bean South × Café Bustelo + Chock full o’Nuts–inspired retail direction.
+ * Bustelo: gold/red energy, Latin boldness, framed hero, warm tints.
+ * Chock: NYC heritage, black promo bar, billboard caps, black “ADD TO CART” blocks.
+ * Brand green reserved for focus / optional accents; primary local CTAs lean Chock-black.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&display=swap');
 
 :root {
   --bs-accent-yellow: #f5c518;
+  --bs-bustelo-gold: #ffc72c;
   --bs-accent-yellow-deep: #e8b012;
   --bs-accent-red: #b21f2d;
+  --bs-chock-red: #c41230;
   --bs-deep-blue: #1b2a4a;
+  --bs-ink: #0d0d0d;
   --bs-ochre-overlay: rgba(212, 160, 18, 0.82);
   --bs-footer-yellow: #f0d040;
   --bs-card-tint-1: #f7e8c4;
   --bs-card-tint-2: #fde8e8;
   --bs-card-tint-3: #e8eef8;
   --bs-card-tint-4: #e8f0e4;
+  --bs-billboard: 'Bebas Neue', Oswald, Impact, sans-serif;
 }
 
-/* —— Header: high-contrast bar (nav labels set in admin: Home, About, Our Coffee, etc.) —— */
+/* Catalogue page ground (Chock-style bright “shelf”) */
+body.design-inspiration.template-index .content-for-layout {
+  background: linear-gradient(180deg, #fdfcfa 0%, #f5f2ec 100%);
+}
+
+/* —— Chock-style promo rail: black + gold type —— */
+body.design-inspiration .utility-bar.color-scheme-4 {
+  --color-background: 0, 0, 0;
+  --color-foreground: 255, 223, 60;
+  background: var(--bs-ink) !important;
+  border-bottom: 3px solid var(--bs-bustelo-gold);
+}
+
+body.design-inspiration .utility-bar .announcement-bar__message {
+  color: #ffe566;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* —— Bustelo-style header: espresso gradient + gold rule + scheme vars for nav —— */
 body.design-inspiration .header-wrapper.color-scheme-3,
 body.design-inspiration .header-wrapper.color-scheme-1 {
   --color-foreground: 255, 255, 255;
-  --color-background: 30, 27, 24;
+  --color-background: 26, 18, 14;
   --color-link: 255, 255, 255;
-  background: rgb(30, 27, 24) !important;
-  border-bottom: 3px solid var(--bs-accent-yellow);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+  background: linear-gradient(180deg, #2a1810 0%, #1a120e 100%) !important;
+  border-bottom: 4px solid var(--bs-bustelo-gold);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
 body.design-inspiration .header-wrapper .header__menu-item,
@@ -42,7 +68,7 @@ body.design-inspiration .header-wrapper .list-menu__item--link {
 
 body.design-inspiration .header-wrapper .header__menu-item:hover,
 body.design-inspiration .header-wrapper .header__active-menu-item {
-  color: var(--bs-accent-yellow) !important;
+  color: var(--bs-bustelo-gold) !important;
 }
 
 body.design-inspiration .header__brand-name {
@@ -75,16 +101,17 @@ body.design-inspiration .header__shop-now-wrap {
 }
 
 body.design-inspiration .header__shop-now {
-  --color-button: 245, 197, 24;
-  --color-button-text: 26, 26, 26;
+  --color-button: 255, 199, 44;
+  --color-button-text: 13, 13, 13;
   min-height: 4.4rem;
   padding: 0 1.8rem;
-  font-family: var(--font-heading-family);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--bs-billboard);
+  font-weight: 400;
+  font-size: 1.65rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  border-radius: 0.2rem;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
 }
 
 body.design-inspiration .header__shop-now:focus-visible {
@@ -106,79 +133,161 @@ body.design-inspiration .menu-drawer__shop-now {
   line-height: 4.8rem;
 }
 
-/* Utility row: bold promo stripe */
-body.design-inspiration .utility-bar.color-scheme-4 {
-  --color-background: 178, 31, 45;
-  --color-foreground: 255, 255, 255;
-  border-bottom: 2px solid var(--bs-accent-yellow);
-}
-
-body.design-inspiration .utility-bar .announcement-bar__message {
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
 /* Hide header social icons; keep cart + search + menu per brief */
 body.design-inspiration .header__social-icons {
   display: none !important;
 }
 
-/* —— Hero: ochre overlay + vintage sans headline —— */
+/* —— Hero: Bustelo-style sun-wash + framed content box —— */
 body.design-inspiration .banner::after,
 body.design-inspiration .banner__media::after {
   background: linear-gradient(
-    115deg,
-    var(--bs-ochre-overlay) 0%,
-    rgba(178, 31, 45, 0.55) 50%,
-    rgba(27, 42, 74, 0.65) 100%
+    125deg,
+    rgba(255, 199, 44, 0.78) 0%,
+    var(--bs-ochre-overlay) 28%,
+    rgba(196, 18, 48, 0.62) 55%,
+    rgba(27, 42, 74, 0.72) 100%
   );
 }
 
 body.design-inspiration .banner__heading {
-  font-family: Oswald, var(--font-heading-family), sans-serif;
-  font-weight: 700;
+  font-family: var(--bs-billboard);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  line-height: 1.05;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.06em;
+  line-height: 0.95;
+  font-size: clamp(3.6rem, 9vw, 6.4rem);
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.45);
+}
+
+body.design-inspiration .banner__text.subtitle,
+body.design-inspiration .banner__text .subtitle {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 1.15rem;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+body.design-inspiration .banner__box {
+  border: 3px solid rgba(255, 199, 44, 0.9);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
 body.design-inspiration .banner__buttons .button--primary {
-  --color-button: 245, 197, 24;
-  --color-button-text: 26, 26, 26;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  --color-button: 255, 199, 44;
+  --color-button-text: 13, 13, 13;
+  font-family: var(--bs-billboard);
+  font-weight: 400;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  border-radius: 0.2rem;
+  border-radius: 0;
   min-height: 4.8rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 2.2rem;
+  padding-right: 2.2rem;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
 }
 
 body.design-inspiration .banner__buttons .button--secondary {
   --alpha-button-background: 1;
-  background: rgba(255, 255, 255, 0.12) !important;
+  background: transparent !important;
   color: #fff !important;
-  border: 2px solid #fff !important;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  border: 3px solid #fff !important;
+  font-family: var(--bs-billboard);
+  font-weight: 400;
+  font-size: 1.7rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  border-radius: 0.2rem;
+  border-radius: 0;
   min-height: 4.8rem;
 }
 
-/* —— Brand story (rich text) —— */
+/* —— Brand story: Chock editorial strip + Bustelo warmth —— */
+body.design-inspiration #brand-story .rich-text.content-container {
+  border-left: 6px solid var(--bs-chock-red);
+  box-shadow: inset 0 0 0 1px rgba(13, 13, 13, 0.06);
+}
+
 body.design-inspiration .rich-text--full-width .rich-text__heading {
+  font-family: var(--bs-billboard);
+  font-size: clamp(3rem, 6vw, 4.2rem);
+  letter-spacing: 0.05em;
+  line-height: 1;
   color: var(--bs-deep-blue);
+  text-transform: uppercase;
 }
 
 body.design-inspiration #brand-story .rich-text__text strong,
 body.design-inspiration #brand-story .rich-text__text a {
-  color: var(--bs-accent-red);
+  color: var(--bs-chock-red);
 }
 
-/* —— Featured products: color-block behind images —— */
+body.design-inspiration #brand-story .rich-text__text {
+  font-size: 1.65rem;
+  line-height: 1.65;
+}
+
+/* —— Featured collection: Chock billboard title + black “shop all” —— */
+body.design-inspiration.template-index .collection__title .title {
+  font-family: var(--bs-billboard);
+  font-size: clamp(3.2rem, 7vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--bs-ink);
+  border-left: 8px solid var(--bs-bustelo-gold);
+  padding-left: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+body.design-inspiration.template-index .collection__description {
+  font-size: 1.65rem;
+  line-height: 1.55;
+  max-width: 64rem;
+  color: rgba(13, 13, 13, 0.82);
+}
+
+body.design-inspiration.template-index .collection__view-all .button {
+  background: var(--bs-ink) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font-family: var(--bs-billboard);
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  min-height: 4.8rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  text-transform: uppercase;
+  box-shadow: 0 3px 0 var(--bs-chock-red);
+}
+
+body.design-inspiration.template-index .collection__view-all .button:focus-visible {
+  outline: 3px solid #2d5016;
+  outline-offset: 3px;
+}
+
+body.design-inspiration.template-index .price,
+body.design-inspiration.template-index .price-item {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+/* —— Product cards: packaging border + Chock-style black CTA —— */
+body.design-inspiration.template-index .card--card,
+body.design-inspiration.template-index .card--standard .card__inner {
+  border-width: 2px !important;
+  border-color: var(--bs-ink) !important;
+  border-radius: 0.25rem !important;
+  box-shadow: 4px 4px 0 rgba(13, 13, 13, 0.12) !important;
+}
+
 body.design-inspiration.template-index .product-grid .grid__item:nth-child(4n + 1) .card--card .card__inner,
 body.design-inspiration.template-index .product-grid .grid__item:nth-child(4n + 1) .card--standard .card__inner {
   background: var(--bs-card-tint-1) !important;
@@ -204,25 +313,70 @@ body.design-inspiration.template-index .card__information .price {
   font-weight: 700;
 }
 
-body.design-inspiration .quick-add__submit,
-body.design-inspiration .button[class*='add-to-cart'] {
-  --color-button: 45, 80, 22;
+body.design-inspiration.template-index .quick-add__submit,
+body.design-inspiration.template-index .quick-add__submit.button,
+body.design-inspiration.template-index .button[class*='add-to-cart'] {
+  --color-button: 13, 13, 13;
   --color-button-text: 255, 255, 255;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  background: var(--bs-ink) !important;
+  color: #fff !important;
+  border-radius: 0 !important;
+  font-family: var(--bs-billboard);
+  font-size: 1.45rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.12em !important;
   text-transform: uppercase;
+  min-height: 4.4rem;
+  border: 2px solid var(--bs-ink) !important;
 }
 
-/* —— Blog / culture cards: bolder type —— */
+body.design-inspiration.template-index .quick-add__submit:focus-visible,
+body.design-inspiration.template-index .button[class*='add-to-cart']:focus-visible {
+  outline: 3px solid #2d5016;
+  outline-offset: 2px;
+}
+
+/* —— Blog / culture: Bustelo “Sabor” energy + Chock caps —— */
+body.design-inspiration .best-of-south__heading {
+  font-family: var(--bs-billboard);
+  font-size: clamp(3rem, 6.5vw, 4.6rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 0.98;
+  text-transform: uppercase;
+  color: var(--bs-ink);
+  border-bottom: 4px solid var(--bs-chock-red);
+  padding-bottom: 1.2rem;
+  margin-bottom: 2.4rem !important;
+}
+
 body.design-inspiration .best-of-south__title {
   font-family: Oswald, var(--font-heading-family), sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  font-size: 1.55rem;
+  font-weight: 700;
 }
 
 body.design-inspiration .best-of-south__badge {
-  background: var(--bs-accent-red) !important;
+  background: var(--bs-ink) !important;
+  color: var(--bs-bustelo-gold) !important;
+  border: 2px solid var(--bs-bustelo-gold);
+  letter-spacing: 0.1em;
+}
+
+body.design-inspiration .best-of-south__nav-btn {
+  border-width: 3px !important;
+  border-color: var(--bs-ink) !important;
+  font-family: var(--bs-billboard);
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
+  border-radius: 0 !important;
+}
+
+body.design-inspiration .best-of-south__nav-btn:hover {
+  background: var(--bs-chock-red) !important;
+  border-color: var(--bs-chock-red) !important;
   color: #fff !important;
 }
 
@@ -243,24 +397,36 @@ body.design-inspiration .best-of-south__badge {
   }
 }
 
-/* —— Newsletter band —— */
+/* —— Newsletter: diner-ticket band (Chock wit + Bustelo gold) —— */
 body.design-inspiration .newsletter .newsletter__wrapper {
-  border-top: 4px solid var(--bs-accent-yellow);
-  border-bottom: 4px solid var(--bs-accent-red);
+  border-top: 5px solid var(--bs-ink);
+  border-bottom: 5px solid var(--bs-chock-red);
+  background: linear-gradient(185deg, #fff9e8 0%, #fff 42%, #fff6da 100%) !important;
+  box-shadow: 0 12px 36px rgba(13, 13, 13, 0.08);
 }
 
 body.design-inspiration .newsletter .inline-richtext.h1,
 body.design-inspiration .newsletter .inline-richtext.h0 {
-  font-family: Oswald, var(--font-heading-family), sans-serif;
+  font-family: var(--bs-billboard);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--bs-deep-blue);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--bs-ink);
+}
+
+body.design-inspiration .newsletter .newsletter__subheading {
+  font-size: 1.55rem;
+  line-height: 1.5;
+  color: rgba(13, 13, 13, 0.78);
 }
 
 body.design-inspiration .newsletter .newsletter-form__button {
   min-width: 4.4rem;
-  background: var(--bs-accent-yellow) !important;
-  color: #1a1a1a !important;
+  background: var(--bs-chock-red) !important;
+  color: #fff !important;
+  border-radius: 0 !important;
+  border: 2px solid var(--bs-ink) !important;
 }
 
 body.design-inspiration .newsletter .newsletter-form__button .svg-wrapper {
@@ -269,9 +435,10 @@ body.design-inspiration .newsletter .newsletter-form__button .svg-wrapper {
 
 body.design-inspiration .newsletter .newsletter-form__button::after {
   content: 'Subscribe';
-  font-weight: 800;
-  font-size: 1.2rem;
-  letter-spacing: 0.08em;
+  font-family: var(--bs-billboard);
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -280,12 +447,13 @@ body.design-inspiration .newsletter .newsletter-form__button:focus-visible {
   outline-offset: 2px;
 }
 
-/* —— Footer: yellow field, dark type, circular social —— */
+/* —— Footer: Chock bag yellow + Bustelo red hover on social —— */
 body.design-inspiration .footer {
-  background: var(--bs-footer-yellow) !important;
+  background: linear-gradient(180deg, #f5d547 0%, var(--bs-footer-yellow) 100%) !important;
   --color-background: 240, 208, 64;
   --color-foreground: 26, 26, 26;
   --gradient-background: var(--bs-footer-yellow);
+  border-top: 4px solid var(--bs-ink);
 }
 
 body.design-inspiration .footer .footer-block__heading,
