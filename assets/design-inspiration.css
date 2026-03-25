@@ -603,11 +603,41 @@ body.design-inspiration {
   --bs-billboard: var(--font-heading-family);
 }
 
-/* Header: compact lockup height (filter on .header__heading-link--brand .header__brand-logo above) */
+/*
+ * Header logo: ~4× visual size without growing layout height.
+ * Layout box stays small (3.5–3.85rem); transform scales drawing; origin keeps growth mostly upward, not into nav.
+ */
+body.design-inspiration .header-wrapper,
+body.design-inspiration .header {
+  overflow: visible;
+}
+
+body.design-inspiration .header__heading,
+body.design-inspiration .header__heading-link--brand {
+  overflow: visible;
+}
+
+body.design-inspiration .header__heading {
+  position: relative;
+  z-index: 3;
+}
+
+body.design-inspiration .header__inline-menu {
+  position: relative;
+  z-index: 5;
+}
+
+body.design-inspiration .header__heading-link--brand {
+  padding-top: 0.15rem !important;
+  padding-bottom: 0.15rem !important;
+}
+
 @media screen and (max-width: 989px) {
   body.design-inspiration .header__brand-logo--full {
     height: 3.5rem !important;
     width: auto !important;
+    transform: scale(4);
+    transform-origin: center bottom;
   }
 }
 
@@ -621,6 +651,8 @@ body.design-inspiration {
     display: block !important;
     height: 3.85rem !important;
     width: auto !important;
+    transform: scale(4);
+    transform-origin: left bottom;
   }
 
   body.design-inspiration .header__heading-link--brand {
