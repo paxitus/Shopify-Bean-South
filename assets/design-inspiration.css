@@ -773,36 +773,6 @@ body.design-inspiration .banner--theme-default-hero .banner__media::after {
   display: none !important;
 }
 
-/* Default hero silhouettes: solid shapes, no glow/shadow (reads as people, not halos) */
-body.design-inspiration .banner__default-hero {
-  pointer-events: none;
-}
-
-body.design-inspiration .banner__default-hero-silhouette {
-  position: absolute;
-  bottom: 5%;
-  height: auto;
-  color: rgba(22, 18, 16, 0.7);
-  opacity: 1;
-  transform: translateZ(0);
-}
-
-body.design-inspiration .banner__default-hero-silhouette svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-body.design-inspiration .banner__default-hero-silhouette--man {
-  left: 62%;
-  width: clamp(4.8rem, 11vw, 8.5rem);
-}
-
-body.design-inspiration .banner__default-hero-silhouette--woman {
-  left: 76%;
-  width: clamp(5.2rem, 12vw, 9.2rem);
-}
-
 /* Culture: make titles/excerpts more prominent */
 body.design-inspiration .best-of-south__title {
   font-weight: 800;

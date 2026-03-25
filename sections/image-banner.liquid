@@ -89,10 +89,9 @@
     </div>
   {%- elsif section.settings.image_2 == blank -%}
     <div
-      class="banner__media media{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} banner__default-hero"
+      class="banner__media media{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
     >
       <img
-        class="banner__default-hero-img"
         src="{{ 'bean-south-hero-banner.png' | asset_url }}"
         alt=""
         width="1376"
@@ -102,14 +101,6 @@
         sizes="{{ full_width }}"
         style="object-position: 18% 50%;"
       >
-
-      {%- comment -%} Default hero: man + woman silhouettes (photo carries the product). {%- endcomment -%}
-      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--man" aria-hidden="true">
-        {{- 'hero-silhouette-man.svg' | inline_asset_content -}}
-      </span>
-      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--woman" aria-hidden="true">
-        {{- 'hero-silhouette-woman.svg' | inline_asset_content -}}
-      </span>
     </div>
   {%- endif -%}
   {%- if section.settings.image_2 != blank -%}

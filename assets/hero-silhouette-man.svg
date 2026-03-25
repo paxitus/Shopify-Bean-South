@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 148" width="60" height="148" aria-hidden="true">
-  <rect x="20" y="8" width="20" height="26" rx="5" fill="currentColor"/>
-  <path
-    fill="currentColor"
-    d="M10 40h40l10 6 3 12-2 8-8-2-2 2v88H35V72H25v74H12V66l-2-2-8 2-2-8 3-12 10-6z"
-  />
-</svg>
