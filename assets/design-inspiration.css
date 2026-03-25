@@ -618,8 +618,8 @@ body.design-inspiration {
 }
 
 /*
- * Header logo: ~4× visual size without growing layout height.
- * Layout box stays small (3.5–3.85rem); transform scales drawing; origin keeps growth mostly upward, not into nav.
+ * Header logo: ~4× visual size; layout box stays small.
+ * Origin at top so scaling grows into the brown band, not up into the announcement bar.
  */
 body.design-inspiration .header-wrapper,
 body.design-inspiration .header {
@@ -650,8 +650,9 @@ body.design-inspiration .header__heading-link--brand {
   body.design-inspiration .header__brand-logo--full {
     height: 3.5rem !important;
     width: auto !important;
+    margin-top: 0.6rem !important;
     transform: scale(4);
-    transform-origin: center bottom;
+    transform-origin: center top;
   }
 }
 
@@ -665,8 +666,9 @@ body.design-inspiration .header__heading-link--brand {
     display: block !important;
     height: 3.85rem !important;
     width: auto !important;
+    margin-top: 0.85rem !important;
     transform: scale(4);
-    transform-origin: left bottom;
+    transform-origin: left top;
   }
 
   body.design-inspiration .header__heading-link--brand {
@@ -675,11 +677,12 @@ body.design-inspiration .header__heading-link--brand {
 
   body.design-inspiration .header--top-left .header__heading,
   body.design-inspiration .header--top-left .header__heading-link--brand {
-    margin-top: -0.4rem !important;
+    margin-top: 0 !important;
+    align-self: center;
   }
 
   body.design-inspiration .header--top-left .header__inline-menu {
-    margin-top: -0.55rem !important;
+    margin-top: -0.35rem !important;
   }
 }
 
