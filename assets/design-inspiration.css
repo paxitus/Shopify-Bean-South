@@ -551,6 +551,11 @@ body.design-inspiration .footer .rte a {
   color: #1a1a1a !important;
 }
 
+body.design-inspiration .footer .footer-block__details-content a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 body.design-inspiration .footer .list-social__link {
   display: inline-flex;
   align-items: center;

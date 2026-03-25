@@ -46,8 +46,8 @@
       "block_order": [
         "link_navigate",
         "link_categories",
-        "contact",
-        "certifications"
+        "certifications",
+        "contact"
       ],
       "settings": {
         "color_scheme": "scheme-3",
