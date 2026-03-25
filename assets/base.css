@@ -3369,16 +3369,21 @@ details-disclosure > details {
   margin-top: 4rem;
 }
 
-/* Bean South: hero banner heading */
+/* Bean South: hero banner — use section color scheme text (readable on any banner background) */
 .banner__heading {
-  color: var(--color-coffee-brown);
+  color: rgb(var(--color-foreground));
   text-transform: uppercase;
   font-family: var(--font-heading);
   font-weight: 700;
 }
+
 .banner__text {
-  color: var(--color-black);
+  color: rgba(var(--color-foreground), 0.92);
   font-family: var(--font-body);
+}
+
+.banner__text.subtitle {
+  color: rgba(var(--color-foreground), 0.95);
 }
 
 @media screen and (forced-colors: active) {

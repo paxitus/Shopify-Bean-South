@@ -164,16 +164,21 @@ body.design-inspiration .banner__heading {
   letter-spacing: 0.06em;
   line-height: 0.95;
   font-size: clamp(3.6rem, 9vw, 6.4rem);
-  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.45);
+  /* Legibility on busy hero imagery (does not replace scheme text color) */
+  text-shadow:
+    0 0 2px rgba(0, 0, 0, 0.8),
+    0 2px 12px rgba(0, 0, 0, 0.55);
 }
 
 body.design-inspiration .banner__text.subtitle,
 body.design-inspiration .banner__text .subtitle {
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 1.15rem;
+  letter-spacing: 0.18em;
+  font-size: 1.2rem;
   font-weight: 700;
-  opacity: 0.95;
+  text-shadow:
+    0 0 2px rgba(0, 0, 0, 0.75),
+    0 1px 8px rgba(0, 0, 0, 0.45);
 }
 
 body.design-inspiration .banner__box {
