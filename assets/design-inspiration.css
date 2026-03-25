@@ -29,20 +29,27 @@ body.design-inspiration.template-index .content-for-layout {
   background: linear-gradient(180deg, #fdfcfa 0%, #f5f2ec 100%);
 }
 
-/* —— Chock-style promo rail: black + gold type —— */
+/* —— Promo rail: high-contrast (readable) + gold accent rule —— */
 body.design-inspiration .utility-bar.color-scheme-4 {
-  --color-background: 0, 0, 0;
-  --color-foreground: 255, 223, 60;
-  background: var(--bs-ink) !important;
+  --color-background: 158, 27, 36;
+  --color-foreground: 255, 255, 255;
+  background: #9e1b24 !important;
   border-bottom: 3px solid var(--bs-bustelo-gold);
 }
 
 body.design-inspiration .utility-bar .announcement-bar__message {
-  color: #ffe566;
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (min-width: 750px) {
+  body.design-inspiration .utility-bar .announcement-bar__message {
+    font-size: 1.5rem;
+  }
 }
 
 /* —— Bustelo-style header: espresso gradient + gold rule + scheme vars for nav —— */
@@ -191,11 +198,19 @@ body.design-inspiration .banner__buttons .button--primary {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
 }
 
+/* Single visible border: Dawn’s .button::after faux border + our border looked doubled */
+body.design-inspiration .banner__buttons .button--secondary::before,
+body.design-inspiration .banner__buttons .button--secondary::after {
+  display: none !important;
+  content: none !important;
+  box-shadow: none !important;
+}
+
 body.design-inspiration .banner__buttons .button--secondary {
-  --alpha-button-background: 1;
-  background: transparent !important;
+  --alpha-button-background: 0;
+  background: rgba(0, 0, 0, 0.25) !important;
   color: #fff !important;
-  border: 3px solid #fff !important;
+  border: 2px solid #fff !important;
   font-family: var(--bs-billboard);
   font-weight: 400;
   font-size: 1.7rem;
@@ -203,6 +218,11 @@ body.design-inspiration .banner__buttons .button--secondary {
   text-transform: uppercase;
   border-radius: 0;
   min-height: 4.8rem;
+  box-shadow: none !important;
+}
+
+body.design-inspiration .banner__buttons .button--secondary:not([disabled]):hover {
+  background: rgba(255, 255, 255, 0.12) !important;
 }
 
 /* —— Brand story: Chock editorial strip + Bustelo warmth —— */
@@ -421,25 +441,42 @@ body.design-inspiration .newsletter .newsletter__subheading {
   color: rgba(13, 13, 13, 0.78);
 }
 
-body.design-inspiration .newsletter .newsletter-form__button {
-  min-width: 4.4rem;
+/* Theme default .field__button is 4.4rem wide + overflow:hidden → clipped label text */
+body.design-inspiration .newsletter-form__field-wrapper .field__input {
+  padding-right: 12rem !important;
+}
+
+@media screen and (min-width: 750px) {
+  body.design-inspiration .newsletter .newsletter-form {
+    max-width: 52rem;
+  }
+}
+
+body.design-inspiration .newsletter-form__button.field__button {
+  width: auto !important;
+  min-width: 10.5rem;
+  padding: 0 1.2rem !important;
+  overflow: visible !important;
   background: var(--bs-chock-red) !important;
   color: #fff !important;
   border-radius: 0 !important;
   border: 2px solid var(--bs-ink) !important;
 }
 
-body.design-inspiration .newsletter .newsletter-form__button .svg-wrapper {
+body.design-inspiration .newsletter .newsletter-form__button .svg-wrapper,
+body.design-inspiration .footer__newsletter .newsletter-form__button .svg-wrapper {
   display: none;
 }
 
-body.design-inspiration .newsletter .newsletter-form__button::after {
-  content: 'Subscribe';
+body.design-inspiration .newsletter-form__button-text {
+  display: inline-block !important;
   font-family: var(--bs-billboard);
   font-weight: 400;
-  font-size: 1.5rem;
-  letter-spacing: 0.12em;
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 body.design-inspiration .newsletter .newsletter-form__button:focus-visible {
