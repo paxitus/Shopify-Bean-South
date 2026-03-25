@@ -658,3 +658,82 @@ body.design-inspiration .best-of-south__nav-btn {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Client-call refinements ===== */
+
+/* Header logo: bigger + inverted (black-on-brown -> white-on-dark) */
+@media screen and (min-width: 990px) {
+  body.design-inspiration .header__brand-logo--full {
+    height: 270px !important; /* ~3x the default 90px */
+    filter: invert(1) brightness(1.08) contrast(1.25);
+  }
+}
+
+/* Brand story: reduce Georgia heading size (was too large) */
+body.design-inspiration #brand-story .rich-text__heading {
+  font-size: clamp(2.2rem, 4vw, 2.8rem) !important;
+  line-height: 1.05;
+}
+
+/* Our Coffee grid: 4 wide on desktop; 3 wide on tablet; 2 wide on mobile */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  body.design-inspiration #shop .grid--2-col-tablet-down .grid__item {
+    width: calc((100% - (var(--grid-desktop-horizontal-spacing) * 2)) / 3);
+    max-width: calc((100% - (var(--grid-desktop-horizontal-spacing) * 2)) / 3);
+  }
+}
+
+/* Default hero overlays (when banner image isn't set in the editor) */
+body.design-inspiration .banner__default-hero {
+  pointer-events: none;
+}
+
+body.design-inspiration .banner__default-hero-mug-logo {
+  position: absolute;
+  left: 7.5%;
+  top: 53%;
+  width: 9.2rem;
+  height: auto;
+  opacity: 0.95;
+  filter: invert(1) brightness(1.1) drop-shadow(0 8px 22px rgba(0, 0, 0, 0.35));
+}
+
+body.design-inspiration .banner__default-hero-silhouette {
+  position: absolute;
+  width: 14rem;
+  height: auto;
+  opacity: 0.28;
+  transform: translateZ(0);
+}
+
+body.design-inspiration .banner__default-hero-silhouette svg {
+  width: 100%;
+  height: auto;
+}
+
+body.design-inspiration .banner__default-hero-silhouette svg path {
+  fill: rgba(255, 255, 255, 0.95);
+}
+
+body.design-inspiration .banner__default-hero-silhouette--man {
+  left: 67%;
+  top: 42%;
+}
+
+body.design-inspiration .banner__default-hero-silhouette--woman {
+  left: 82%;
+  top: 50%;
+  transform: scaleX(-1) translateZ(0);
+  width: 12.5rem;
+}
+
+/* Culture: make titles/excerpts more prominent */
+body.design-inspiration .best-of-south__title {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+body.design-inspiration .best-of-south__excerpt {
+  font-size: 1.5rem;
+  font-weight: 550;
+}

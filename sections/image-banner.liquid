@@ -88,16 +88,40 @@
       }}
     </div>
   {%- elsif section.settings.image_2 == blank -%}
-    <div class="banner__media media{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    <div
+      class="banner__media media{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} banner__default-hero"
+    >
       <img
+        class="banner__default-hero-img"
         src="{{ 'bean-south-hero-banner.png' | asset_url }}"
-        alt="{{ 'sections.image_banner.default_hero_alt' | t }}"
+        alt=""
         width="1376"
         height="768"
         loading="eager"
         fetchpriority="{{ fetch_priority }}"
         sizes="{{ full_width }}"
+        style="object-position: 18% 50%;"
       >
+
+      {%- comment -%}
+        Client-call overlays for the default hero:
+        - move the focus mug left (via object-position on the base image)
+        - add man & woman silhouettes
+        - add a Bean South mark onto the mug area
+      {%- endcomment -%}
+      <img
+        class="banner__default-hero-mug-logo"
+        src="{{ 'bean-south-logo-bean_1.png' | asset_url }}"
+        alt=""
+        aria-hidden="true"
+      >
+
+      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--man" aria-hidden="true">
+        {{- 'icon-silhouette.svg' | inline_asset_content -}}
+      </span>
+      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--woman" aria-hidden="true">
+        {{- 'icon-silhouette.svg' | inline_asset_content -}}
+      </span>
     </div>
   {%- endif -%}
   {%- if section.settings.image_2 != blank -%}

@@ -64,7 +64,7 @@
           "type": "heading",
           "settings": {
             "heading": "From Georgia to the small-scale coffee farmers who inspire us",
-            "heading_size": "h1"
+            "heading_size": "h2"
           }
         },
         "story_text": {
@@ -98,7 +98,7 @@
         "description": "<p>Roasted in small batches with bold Southern character. Choose your roast and grind to make it your own.</p>",
         "show_description": true,
         "description_style": "body",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
@@ -110,7 +110,7 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
-        "columns_mobile": "1",
+        "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 40,
         "padding_bottom": 64
