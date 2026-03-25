@@ -22,7 +22,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "Fair trade, organic coffee — roasted in Americus, Georgia. Bold flavor, Southern soul.",
+            "text": "Fair trade, organic coffee \u2014 roasted in Americus, Georgia. Bold flavor, Southern soul.",
             "text_style": "subtitle"
           }
         },
@@ -45,15 +45,15 @@
       ],
       "settings": {
         "image": "",
-        "image_overlay_opacity": 45,
+        "image_overlay_opacity": 50,
         "image_height": "large",
         "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
+        "mobile_content_alignment": "left",
         "show_text_below": true
       }
     },
@@ -63,14 +63,14 @@
         "story_heading": {
           "type": "heading",
           "settings": {
-            "heading": "From Georgia to the growers who inspire us",
+            "heading": "From Georgia to the small-scale coffee farmers who inspire us",
             "heading_size": "h1"
           }
         },
         "story_text": {
           "type": "text",
           "settings": {
-            "text": "<p>Bean South bridges the <strong>American South</strong> we’re proud to call home and the <strong>Global South</strong> where exceptional coffee is grown. We roast in small batches with the same care you’d find in a Southern kitchen — honoring farmers, land, and the stories behind every cup.</p>"
+            "text": "<p>Bean South connects the <strong>American South</strong> we call home with the <strong>Global South</strong> where coffee is grown. From Georgia outward, we honor small-scale farmers, craft roasting, and everyday Southern hospitality in every cup.</p>"
           }
         }
       },
@@ -95,10 +95,10 @@
         "products_to_show": 4,
         "title": "Our Coffee",
         "heading_size": "h2",
-        "description": "<p>Fair trade, USDA organic, shade-grown — choose your roast.</p>",
+        "description": "<p>Roasted in small batches with bold Southern character. Choose your roast and grind to make it your own.</p>",
         "show_description": true,
         "description_style": "body",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
@@ -147,7 +147,7 @@
         "blog-southern-sights"
       ],
       "settings": {
-        "heading": "Recipes, culture & stories from the South",
+        "heading": "Celebrate the Best of the South: recipes, culture, stories, and more",
         "heading_size": "h1",
         "home_tag": "home",
         "posts_to_show": 4,
@@ -164,14 +164,14 @@
         "nl_heading": {
           "type": "heading",
           "settings": {
-            "heading": "Join Our Southern Circle",
+            "heading": "Join Our Southern Community",
             "heading_size": "h1"
           }
         },
         "nl_para": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Exclusive recipes, culture from the South, and early-bird promotions — reserved for subscribers.</p>"
+            "text": "<p>Wherever you live, stay connected to Southern recipes, culture, and early access to coffee releases.</p>"
           }
         },
         "nl_form": {

@@ -20,25 +20,41 @@
             "show_social": false
           }
         },
-        "text": {
-          "type": "text",
-          "settings": {
-            "heading": "Contact",
-            "subtext": "<p>506 W Forsyth St.<br>Americus, GA 31709</p><p><a href=\"mailto:beansouth@cafecampasino.com\">beansouth@cafecampasino.com</a></p>"
-          }
-        },
-        "link_list": {
+        "link_navigate": {
           "type": "link_list",
           "settings": {
-            "heading": "Shop & info",
+            "heading": "Navigate",
+            "menu": "main-menu"
+          }
+        },
+        "link_categories": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Categories",
             "menu": "footer"
+          }
+        },
+        "contact": {
+          "type": "text",
+          "settings": {
+            "heading": "Connect with Us",
+            "subtext": "<p>506 W Forsyth St.<br>Americus, GA 31709</p><p><a href=\"mailto:beansouth@cafecampasino.com\">beansouth@cafecampasino.com</a></p><p><a href=\"tel:+12299242468\">+1 (229) 924-2468</a></p>"
+          }
+        },
+        "certifications": {
+          "type": "text",
+          "settings": {
+            "heading": "Our Standards",
+            "subtext": "<p>USDA Organic<br>Fair Trade Federation<br>Certified B Corp<br>Co-op Coffees</p>"
           }
         }
       },
       "block_order": [
         "brand_information",
-        "text",
-        "link_list"
+        "link_navigate",
+        "link_categories",
+        "contact",
+        "certifications"
       ],
       "settings": {
         "color_scheme": "scheme-3",
