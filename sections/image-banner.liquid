@@ -103,26 +103,15 @@
         style="object-position: 18% 50%;"
       >
 
-      {%- comment -%}
-        Client-call overlays for the default hero:
-        - move the focus mug left (via object-position on the base image)
-        - add man & woman silhouettes
-        - add a Bean South mark onto the mug area
-      {%- endcomment -%}
-      <img
-        class="banner__default-hero-mug-logo"
-        src="{{ 'Bean-south-logo-bean_1.png' | asset_url }}"
-        alt=""
-        aria-hidden="true"
-        width="1000"
-        height="828"
-      >
-
-      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--man" aria-hidden="true">
-        {{- 'icon-silhouette.svg' | inline_asset_content -}}
+      {%- comment -%} Default hero: subtle people silhouettes (no mug overlay — photo carries the product). {%- endcomment -%}
+      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--1" aria-hidden="true">
+        {{- 'hero-silhouette-person.svg' | inline_asset_content -}}
       </span>
-      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--woman" aria-hidden="true">
-        {{- 'icon-silhouette.svg' | inline_asset_content -}}
+      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--2" aria-hidden="true">
+        {{- 'hero-silhouette-person.svg' | inline_asset_content -}}
+      </span>
+      <span class="banner__default-hero-silhouette banner__default-hero-silhouette--3" aria-hidden="true">
+        {{- 'hero-silhouette-person.svg' | inline_asset_content -}}
       </span>
     </div>
   {%- endif -%}

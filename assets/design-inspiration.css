@@ -704,52 +704,50 @@ body.design-inspiration #brand-story .rich-text__heading {
   }
 }
 
-/* Default hero overlays (when banner image isn't set in the editor) */
+/* Default hero: flat overlay only (avoids double pseudo-layers / banding “rings”) */
+body.design-inspiration .banner--theme-default-hero::after {
+  background: rgba(14, 12, 10, 0.38) !important;
+  opacity: 0.85 !important;
+}
+
+body.design-inspiration .banner--theme-default-hero .banner__media::after {
+  display: none !important;
+}
+
+/* Default hero silhouettes: solid shapes, no glow/shadow (reads as people, not halos) */
 body.design-inspiration .banner__default-hero {
   pointer-events: none;
 }
 
-body.design-inspiration .banner__default-hero-mug-logo {
-  position: absolute;
-  left: 10.5%;
-  top: 56%;
-  width: auto !important;
-  height: auto !important;
-  max-width: min(11vw, 3.9rem);
-  max-height: 3.25rem;
-  opacity: 0.9;
-  filter: invert(1) brightness(1.06) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
-  object-fit: contain;
-}
-
 body.design-inspiration .banner__default-hero-silhouette {
   position: absolute;
-  width: 17rem;
+  bottom: 6%;
+  width: clamp(4.5rem, 12vw, 9rem);
   height: auto;
-  opacity: 0.62;
+  color: rgba(18, 16, 15, 0.72);
+  opacity: 1;
   transform: translateZ(0);
-  filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.55));
 }
 
 body.design-inspiration .banner__default-hero-silhouette svg {
+  display: block;
   width: 100%;
   height: auto;
 }
 
-body.design-inspiration .banner__default-hero-silhouette svg path {
-  fill: rgba(255, 255, 255, 0.95);
+body.design-inspiration .banner__default-hero-silhouette--1 {
+  left: 58%;
 }
 
-body.design-inspiration .banner__default-hero-silhouette--man {
-  left: 67%;
-  top: 42%;
-}
-
-body.design-inspiration .banner__default-hero-silhouette--woman {
-  left: 80%;
-  top: 48%;
+body.design-inspiration .banner__default-hero-silhouette--2 {
+  left: 71%;
   transform: scaleX(-1) translateZ(0);
-  width: 14.5rem;
+}
+
+body.design-inspiration .banner__default-hero-silhouette--3 {
+  left: 84%;
+  width: clamp(4rem, 10vw, 7.5rem);
+  color: rgba(18, 16, 15, 0.62);
 }
 
 /* Culture: make titles/excerpts more prominent */
