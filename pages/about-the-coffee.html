@@ -1,0 +1,565 @@
+<!-- ============================================================
+     Bean South Coffee — About The Coffee Page
+     Paste into Shopify Admin > Pages > Add Page > Show HTML
+     ============================================================ -->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap');
+
+  .bs-page * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .bs-page {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #1A1A1A;
+  }
+
+  /* ---------- HERO ---------- */
+  .bs-hero {
+    background-color: #4A3728;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+  .bs-hero__eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #E8DCC4;
+    margin-bottom: 1.25rem;
+  }
+  .bs-hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bs-hero__sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #E8DCC4;
+    max-width: 660px;
+    margin: 0 auto 2rem;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .bs-btn {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.9rem 2.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    cursor: pointer;
+  }
+  .bs-btn--primary {
+    background-color: #2D5016;
+    color: #FFFFFF;
+    border: 2px solid #2D5016;
+  }
+  .bs-btn--primary:hover { background-color: #1e360f; border-color: #1e360f; }
+  .bs-btn--secondary {
+    background-color: transparent;
+    color: #4A3728;
+    border: 2px solid #4A3728;
+  }
+  .bs-btn--secondary:hover { background-color: #4A3728; color: #FFFFFF; }
+  .bs-btn--secondary-light {
+    background-color: transparent;
+    color: #E8DCC4;
+    border: 2px solid #E8DCC4;
+  }
+  .bs-btn--secondary-light:hover { background-color: #E8DCC4; color: #4A3728; }
+  .bs-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .bs-section { padding: 5rem 2rem; }
+  .bs-section--cream  { background-color: #F5F1E8; }
+  .bs-section--tan    { background-color: #E8DCC4; }
+  .bs-section--dark   { background-color: #4A3728; color: #FFFFFF; }
+  .bs-section--green  { background-color: #2D5016; color: #FFFFFF; }
+
+  .bs-container {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .bs-container--wide {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ---------- HEADINGS ---------- */
+  .bs-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #4A3728;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  .bs-section--tan h2,
+  .bs-section--dark h2,
+  .bs-section--green h2 { color: #FFFFFF; }
+  .bs-section--tan h2 { color: #4A3728; }
+
+  .bs-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #2D5016;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+  .bs-section--dark h3 { color: #E8DCC4; }
+  .bs-section p { margin-bottom: 1.25rem; }
+  .bs-section p:last-of-type { margin-bottom: 0; }
+  .bs-section ul {
+    margin: 1rem 0 1.25rem 1.5rem;
+    line-height: 1.8;
+  }
+  .bs-section ul li { margin-bottom: 0.4rem; }
+
+  /* ---------- DIVIDER ---------- */
+  .bs-divider {
+    border: none;
+    border-top: 2px solid #4A3728;
+    opacity: 0.15;
+    margin: 0 auto 2.5rem;
+    max-width: 80px;
+  }
+  .bs-divider--light {
+    border-color: #E8DCC4;
+    opacity: 0.3;
+  }
+
+  /* ---------- INTRO BANNER ---------- */
+  .bs-intro-banner {
+    background-color: #F5F1E8;
+    padding: 3.5rem 2rem;
+    text-align: center;
+  }
+  .bs-intro-banner p {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.75;
+    color: #1A1A1A;
+  }
+
+  /* ---------- PILLAR SECTIONS (alternating layout) ---------- */
+  .bs-pillar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 360px;
+  }
+  .bs-pillar__content {
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .bs-pillar__image {
+    background-color: #4A3728;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bs-pillar__image-placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #E8DCC4;
+    opacity: 0.5;
+    text-align: center;
+    padding: 2rem;
+  }
+  /* Alternate: image left, content right */
+  .bs-pillar--reverse .bs-pillar__content { order: 2; }
+  .bs-pillar--reverse .bs-pillar__image   { order: 1; }
+
+  .bs-pillar--cream .bs-pillar__content { background-color: #F5F1E8; }
+  .bs-pillar--cream .bs-pillar__image   { background-color: #4A3728; }
+  .bs-pillar--tan   .bs-pillar__content { background-color: #E8DCC4; }
+  .bs-pillar--tan   .bs-pillar__image   { background-color: #2D5016; }
+
+  .bs-pillar__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #2D5016;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .bs-pillar--tan .bs-pillar__label { color: #4A3728; }
+
+  /* ---------- COOPERATIVE SECTION ---------- */
+  .bs-coop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+  .bs-coop-item {
+    padding: 1.75rem;
+    border-left: 3px solid #E8DCC4;
+  }
+  .bs-coop-item h3 {
+    color: #E8DCC4;
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+  }
+  .bs-coop-item p {
+    color: #F5F1E8;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  /* ---------- PRODUCTS SECTION ---------- */
+  .bs-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.75rem;
+    margin-top: 2.5rem;
+  }
+  .bs-product-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E8DCC4;
+    border-radius: 6px;
+    padding: 2rem 1.75rem;
+  }
+  .bs-product-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #4A3728;
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+  }
+  .bs-product-card p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: #1A1A1A;
+    margin-bottom: 0;
+  }
+  .bs-product-card__price {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #2D5016;
+  }
+
+  /* ---------- ACCOUNTABILITY ---------- */
+  .bs-accountability-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+  .bs-accountability-item {
+    padding: 2rem 1.75rem;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 6px;
+    border: 1px solid rgba(232,220,196,0.2);
+  }
+  .bs-accountability-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #E8DCC4;
+    margin-bottom: 0.6rem;
+    margin-top: 0;
+  }
+  .bs-accountability-item p {
+    font-size: 0.9rem;
+    color: #F5F1E8;
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  /* ---------- STAT CALLOUT ---------- */
+  .bs-stat {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #2D5016;
+  }
+  .bs-stat__number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1;
+    display: block;
+  }
+  .bs-stat__label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #d4e8c2;
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  /* ---------- CTA SECTION ---------- */
+  .bs-cta-section {
+    background-color: #4A3728;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+  .bs-cta-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+  }
+  .bs-cta-section p {
+    font-size: 1.05rem;
+    color: #E8DCC4;
+    max-width: 580px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .bs-cta-section .bs-btn--primary {
+    background-color: #2D5016;
+    border-color: #2D5016;
+  }
+  .bs-cta-section .bs-btn--primary:hover {
+    background-color: #1e360f;
+    border-color: #1e360f;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    .bs-pillar { grid-template-columns: 1fr; }
+    .bs-pillar__content { padding: 3rem 1.5rem; }
+    .bs-pillar--reverse .bs-pillar__content { order: 1; }
+    .bs-pillar--reverse .bs-pillar__image   { order: 2; }
+    .bs-pillar__image { min-height: 200px; }
+  }
+  @media (max-width: 640px) {
+    .bs-section { padding: 3.5rem 1.25rem; }
+    .bs-hero { padding: 3.5rem 1.25rem; }
+    .bs-cta-section { padding: 3.5rem 1.25rem; }
+    .bs-intro-banner { padding: 2.5rem 1.25rem; }
+    .bs-coop-grid, .bs-products-grid, .bs-accountability-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="bs-page">
+
+  <!-- ===== HERO ===== -->
+  <section class="bs-hero">
+    <p class="bs-hero__eyebrow">Bean South Coffee</p>
+    <h1>Not All Coffee<br>Is Created Equal.</h1>
+    <p class="bs-hero__sub">Ours starts with the world's best small-scale farmers, travels through a transparent supply chain, and gets roasted fresh in Americus, Georgia every single time.</p>
+    <a href="/collections/coffee" class="bs-btn bs-btn--primary">Discover Our Roasts</a>
+  </section>
+
+  <!-- ===== INTRO ===== -->
+  <section class="bs-intro-banner">
+    <p>At Bean South, we don't compromise on what goes into your cup. Every coffee we offer meets four non-negotiable standards: fair trade, organic, shade grown, and specialty grade. These aren't marketing terms. They are commitments we make to the farmers who grow our coffee, to you, and to the planet.</p>
+  </section>
+
+  <!-- ===== PILLAR 1 — FAIR TRADE ===== -->
+  <div class="bs-pillar bs-pillar--cream">
+    <div class="bs-pillar__content">
+      <span class="bs-pillar__label">Pillar 1 of 4</span>
+      <h2 style="margin-bottom: 1rem;">Fair Trade, Every Cup.</h2>
+      <p>All of our coffees are Fair Trade certified. That means every farmer who grew the beans in your bag was paid a fair price for their work, operates in safe conditions, and participates in a system built for their long-term benefit.</p>
+      <p>Fair Trade represents our commitment to:</p>
+      <ul>
+        <li>Long-term relationships with farming communities</li>
+        <li>Fair wages that sustain families and futures</li>
+        <li>Community development funds for schools and clinics</li>
+        <li>Environmental responsibility at every step</li>
+        <li>Transparency and democratic organization</li>
+      </ul>
+    </div>
+    <div class="bs-pillar__image">
+      <p class="bs-pillar__image-placeholder">Fair Trade<br>Coffee Farming<br>Photography</p>
+    </div>
+  </div>
+
+  <!-- ===== PILLAR 2 — ORGANIC ===== -->
+  <div class="bs-pillar bs-pillar--tan bs-pillar--reverse">
+    <div class="bs-pillar__content">
+      <span class="bs-pillar__label">Pillar 2 of 4</span>
+      <h2 style="margin-bottom: 1rem; color: #4A3728;">Organic Certified. Crop to Cup.</h2>
+      <p>Every coffee we roast is USDA Organic certified. From the soil the plants grow in to the hands that harvest them, the entire process is done without synthetic chemicals or harmful inputs.</p>
+      <p>Organic farming is better for the farmers tending these crops without exposure to harmful pesticides. Better for their land and water. Better for the communities that live and work among these farms for generations. When you taste clean coffee, this is what clean means.</p>
+    </div>
+    <div class="bs-pillar__image">
+      <p class="bs-pillar__image-placeholder">Organic<br>Coffee Farm<br>Photography</p>
+    </div>
+  </div>
+
+  <!-- ===== PILLAR 3 — SHADE GROWN ===== -->
+  <div class="bs-pillar bs-pillar--cream">
+    <div class="bs-pillar__content">
+      <span class="bs-pillar__label">Pillar 3 of 4</span>
+      <h2 style="margin-bottom: 1rem;">Shade Grown. Ecosystem Intact.</h2>
+      <p>Our coffees are grown under a canopy of shade trees, the traditional way coffee was cultivated for centuries before industrial farming cleared the forest floors.</p>
+      <p>Shade-grown farming preserves natural habitats for birds, insects, and wildlife. It maintains healthy soil and balanced ecosystems. And for the farmers and communities who live among these farms, it means a landscape that sustains life, not just crops. Great coffee and a healthy planet should not be a trade-off.</p>
+    </div>
+    <div class="bs-pillar__image">
+      <p class="bs-pillar__image-placeholder">Shade Grown<br>Coffee Plants<br>Photography</p>
+    </div>
+  </div>
+
+  <!-- ===== PILLAR 4 — SPECIALTY GRADE ===== -->
+  <div class="bs-pillar bs-pillar--tan bs-pillar--reverse">
+    <div class="bs-pillar__content">
+      <span class="bs-pillar__label">Pillar 4 of 4</span>
+      <h2 style="margin-bottom: 1rem; color: #4A3728;">Specialty Grade Only.</h2>
+      <p>Specialty coffee represents the top tier of the global coffee market, scoring 80 points or above on a 100-point scale set by the Specialty Coffee Association. We roast only specialty grade.</p>
+      <p>We work with some of the most talented small-scale farmers on the planet. We take seriously the responsibility of honoring their expertise, which is why we roast every batch with the same care and attention they put into growing it. The result is a cup that stands entirely on its own.</p>
+    </div>
+    <div class="bs-pillar__image">
+      <p class="bs-pillar__image-placeholder">Specialty Coffee<br>Roasting<br>Photography</p>
+    </div>
+  </div>
+
+  <!-- ===== STAT CALLOUT ===== -->
+  <section class="bs-stat">
+    <span class="bs-stat__number">14</span>
+    <span class="bs-stat__label">Countries where our partner farmer cooperatives are based</span>
+  </section>
+
+  <!-- ===== THE COOPERATIVE MODEL ===== -->
+  <section class="bs-section bs-section--dark">
+    <div class="bs-container--wide">
+      <div class="bs-container" style="padding: 0;">
+        <h2>How We Source the Coffee</h2>
+        <p style="color: #E8DCC4; font-size: 1.05rem; margin-bottom: 0.5rem;">No middle-man. Direct relationships. Real impact.</p>
+        <hr class="bs-divider bs-divider--light">
+      </div>
+      <div class="bs-container" style="padding: 0; margin-bottom: 2.5rem;">
+        <p style="color: #F5F1E8;">We are part of a unique supply chain built around fairness and direct relationships. Cooperative Coffees, our importing cooperative, buys directly from small farmer cooperatives in 14 countries around the world. No brokers. No commodity exchanges. No middle-man taking a cut from what the farmer earns.</p>
+        <p style="color: #F5F1E8;">A cooperative is a democratic enterprise owned and run by its members, who share in the profits and decisions. By working exclusively with farmer cooperatives, we ensure that the people doing the hardest work see the most direct benefit.</p>
+      </div>
+      <div class="bs-coop-grid">
+        <div class="bs-coop-item">
+          <h3>The Cooperative Model</h3>
+          <p>We only buy from small farmer cooperatives, democratic enterprises where the farmers themselves own and operate the business and share in its profits.</p>
+        </div>
+        <div class="bs-coop-item">
+          <h3>Cooperative Coffees</h3>
+          <p>Our importing cooperative business buys directly from small-scale farmer cooperatives in 14 countries, with no middle-man between the farmer and your cup.</p>
+        </div>
+        <div class="bs-coop-item">
+          <h3>Roasted in Americus</h3>
+          <p>Once those carefully sourced beans arrive in Georgia, we roast them fresh right here in Americus and ship them directly to your door.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR COFFEES ===== -->
+  <section class="bs-section bs-section--cream">
+    <div class="bs-container--wide">
+      <div class="bs-container" style="padding: 0 0 1rem;">
+        <h2>Freshly Roasted in Americus, Georgia</h2>
+        <p style="font-size: 1.05rem; color: #1A1A1A;">Three roasts. All fair trade, organic, shade grown, and specialty grade.</p>
+        <hr class="bs-divider">
+      </div>
+      <div class="bs-products-grid">
+
+        <div class="bs-product-card">
+          <h3>Dark Roast</h3>
+          <p>Bold, full-bodied, and deeply satisfying. Our dark roast brings out the richest flavors from our specialty beans, smooth enough to stand on its own.</p>
+          <span class="bs-product-card__price">$19.95</span>
+        </div>
+
+        <div class="bs-product-card">
+          <h3>Medium Roast</h3>
+          <p>Balanced and bright with complexity in every cup. Our medium roast is where origin character shines through, the everyday coffee worth savoring.</p>
+          <span class="bs-product-card__price">$19.95</span>
+        </div>
+
+        <div class="bs-product-card">
+          <h3>Decaf</h3>
+          <p>Everything you love about Bean South Coffee, without the caffeine. Specialty grade, fair trade, and just as carefully roasted.</p>
+          <span class="bs-product-card__price">$19.95</span>
+        </div>
+
+      </div>
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="/collections/coffee" class="bs-btn bs-btn--primary">Shop All Coffees</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACCOUNTABILITY ===== -->
+  <section class="bs-section bs-section--dark">
+    <div class="bs-container--wide">
+      <div class="bs-container" style="padding: 0;">
+        <h2>We Hold Ourselves to a Higher Standard</h2>
+        <p style="color: #E8DCC4; margin-bottom: 0.5rem;">It's easy to make claims about coffee. We'd rather show our work.</p>
+        <hr class="bs-divider bs-divider--light">
+      </div>
+      <div class="bs-accountability-grid">
+        <div class="bs-accountability-item">
+          <h3>B Corp Certified</h3>
+          <p>B Certification independently verifies that we use our business as a force for good. It examines how we treat our workers, our community, our customers, and the environment.</p>
+        </div>
+        <div class="bs-accountability-item">
+          <h3>Fair Trade Federation</h3>
+          <p>As members of the FTF, we are part of a network of businesses fully committed to equitable and sustainable trading partnerships with producers around the world.</p>
+        </div>
+        <div class="bs-accountability-item">
+          <h3>Georgia's First</h3>
+          <p>Cafe Campesino, our parent operation, was Georgia's first and only 100% fair trade and organic certified coffee roaster. That track record spans more than twenty-five years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLOSING CTA ===== -->
+  <section class="bs-cta-section">
+    <h2>Ready to Taste the Difference?</h2>
+    <p>Fresh roasted in Americus, Georgia. Fair trade. USDA Organic. Specialty grade. Shipped directly to you.</p>
+    <div class="bs-btn-group">
+      <a href="/collections/coffee" class="bs-btn bs-btn--primary">Shop Fresh Roasted Coffee</a>
+      <a href="/pages/about-us" class="bs-btn bs-btn--secondary-light">Learn About Us</a>
+    </div>
+  </section>
+
+</div>
+<!-- END Bean South Coffee — About The Coffee -->

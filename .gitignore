@@ -26,3 +26,7 @@ npm-debug.log*
 # Temporary files
 *.tmp
 *.temp
+
+# Local MCP / Playwright artifacts
+.mcp.json
+.playwright-mcp/

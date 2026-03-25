@@ -1,0 +1,26 @@
+name: Deploy to Shopify Staging
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Shopify CLI and Theme
+        run: npm install -g @shopify/cli@latest @shopify/theme@latest
+
+      - name: Push theme to Shopify (staging)
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+        run: |
+          shopify theme push \
+            --store ${{ secrets.SHOPIFY_STORE_URL }} \
+            --theme ${{ secrets.SHOPIFY_STAGING_THEME_ID }} \
+            --allow-live \
+            --nodelete
