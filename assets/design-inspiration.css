@@ -52,6 +52,20 @@ body.design-inspiration .utility-bar .announcement-bar__message {
   }
 }
 
+/*
+ * Header group stacking: scaled logo overflows upward into the promo bar’s band.
+ * Keep the announcement section underneath the main header so the mark stays visible.
+ */
+body.design-inspiration .announcement-bar-section {
+  position: relative;
+  z-index: 1;
+}
+
+body.design-inspiration .section-header {
+  /* Sticky header already provides a positioning context; keep promo rail underneath */
+  z-index: 6;
+}
+
 /* —— Bustelo-style header: espresso gradient + gold rule + scheme vars for nav —— */
 body.design-inspiration .header-wrapper.color-scheme-3,
 body.design-inspiration .header-wrapper.color-scheme-1 {
