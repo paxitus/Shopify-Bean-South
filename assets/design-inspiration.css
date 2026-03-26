@@ -648,9 +648,9 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 
 @media screen and (max-width: 989px) {
   body.design-inspiration .header__brand-logo--full {
-    height: clamp(5.2rem, 16vw, 7.5rem) !important;
+    height: clamp(7.5rem, 22vw, 11rem) !important;
     width: auto !important;
-    max-width: min(92vw, 42rem);
+    max-width: min(92vw, 48rem);
   }
 }
 
@@ -662,7 +662,7 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 
   body.design-inspiration .header__brand-logo--full {
     display: block !important;
-    height: clamp(6.75rem, 8.5vw, 10.25rem) !important;
+    height: clamp(10.25rem, 12vw, 15.5rem) !important;
     width: auto !important;
     max-width: 100%;
   }
