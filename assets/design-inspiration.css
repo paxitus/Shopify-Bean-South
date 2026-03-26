@@ -618,8 +618,8 @@ body.design-inspiration {
 }
 
 /*
- * Brown band: no vertical padding, no padding on logo link, ~1.5× logo vs prior clamp.
- * Desktop (Bean South 3-row top-left): 1fr + auto(logo) + 1fr centers logo vertically in min-height band.
+ * Brown band: logo column | icons + nav column (desktop top-left + dropdown).
+ * Avoids a full-width logo row that blows header height; no extra vertical padding on lockup.
  */
 body.design-inspiration .header-wrapper,
 body.design-inspiration .header {
@@ -654,14 +654,14 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 
 @media screen and (max-width: 989px) {
   body.design-inspiration .header__brand-logo--full {
-    height: clamp(11.25rem, 28vw, 16.5rem) !important;
+    height: clamp(8.5rem, 22vw, 12.5rem) !important;
     width: auto !important;
-    max-width: min(94vw, 52rem);
+    max-width: min(94vw, 48rem);
   }
 
   body.design-inspiration .header.page-width {
-    min-height: clamp(10.5rem, 32vh, 17rem);
-    align-content: center;
+    min-height: unset;
+    align-content: unset;
     row-gap: 0;
   }
 }
@@ -674,7 +674,7 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 
   body.design-inspiration .header__brand-logo--full {
     display: block !important;
-    height: clamp(15.4rem, 18vw, 23.2rem) !important;
+    height: clamp(9.5rem, 11vw, 14.5rem) !important;
     width: auto !important;
     max-width: 100%;
   }
@@ -683,29 +683,38 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
     gap: 0;
   }
 
-  body.design-inspiration .header--top-left .header__heading,
-  body.design-inspiration .header--top-left .header__heading-link--brand {
-    margin-top: 0 !important;
-    padding: 0 !important;
-    align-self: center;
-  }
-
-  body.design-inspiration .header--top-left .header__inline-menu {
-    margin-top: 0 !important;
-    align-self: center;
-  }
-
-  body.design-inspiration .header--top-left .header__icons {
-    align-self: center;
-  }
-
-  body.design-inspiration .header--top-left {
+  /* Two columns: logo (spans both rows) | icons, then nav */
+  body.design-inspiration .header--top-left:not(.drawer-menu) {
+    grid-template-areas:
+      'heading icons'
+      'heading navigation';
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
     align-items: center;
-    row-gap: 0 !important;
+    column-gap: 1.5rem;
+    row-gap: 0.2rem;
+    min-height: unset !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    min-height: clamp(14rem, 28vh, 22rem);
-    grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
+  body.design-inspiration .header--top-left:not(.drawer-menu) .header__heading,
+  body.design-inspiration .header--top-left:not(.drawer-menu) .header__heading-link--brand {
+    margin-top: 0 !important;
+    padding: 0 !important;
+    justify-self: start;
+    align-self: center;
+  }
+
+  body.design-inspiration .header--top-left:not(.drawer-menu) .header__icons {
+    justify-self: end;
+    align-self: center;
+  }
+
+  body.design-inspiration .header--top-left:not(.drawer-menu) .header__inline-menu {
+    margin-top: 0 !important;
+    justify-self: end;
+    align-self: center;
   }
 }
 
