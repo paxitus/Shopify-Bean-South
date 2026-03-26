@@ -674,7 +674,7 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 
   body.design-inspiration .header__brand-logo--full {
     display: block !important;
-    height: clamp(9.5rem, 11vw, 14.5rem) !important;
+    height: 20rem !important;
     width: auto !important;
     max-width: 100%;
   }
@@ -713,8 +713,20 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 
   body.design-inspiration .header--top-left:not(.drawer-menu) .header__inline-menu {
     margin-top: 0 !important;
-    justify-self: end;
+    margin-left: 0 !important;
+    justify-self: center;
     align-self: center;
+    width: 100%;
+  }
+
+  body.design-inspiration .header--top-left:not(.drawer-menu) .header__inline-menu > .list-menu--inline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 0.25rem 0.5rem;
   }
 }
 
