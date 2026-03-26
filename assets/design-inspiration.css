@@ -934,7 +934,18 @@ body.design-inspiration .banner__text.subtitle {
   color: rgba(255, 255, 255, 0.96);
   letter-spacing: 0.06em;
   text-transform: none;
-  font-size: 1.45rem;
+  font-size: 1.6rem;
+}
+
+/* Keep hero subtitle on one line until viewport constraints require wrapping */
+body.design-inspiration .banner__text.subtitle {
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 989px) {
+  body.design-inspiration .banner__text.subtitle {
+    white-space: normal;
+  }
 }
 
 /* Keep hero buttons readable but less chunky */
