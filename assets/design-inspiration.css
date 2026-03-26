@@ -650,8 +650,8 @@ body.design-inspiration .header__heading-link--brand {
   body.design-inspiration .header__brand-logo--full {
     height: 3.5rem !important;
     width: auto !important;
-    margin-top: 0.6rem !important;
-    transform: scale(4);
+    margin-top: -1.35rem !important;
+    transform: translateY(-0.65rem) scale(4);
     transform-origin: center top;
   }
 }
@@ -666,8 +666,8 @@ body.design-inspiration .header__heading-link--brand {
     display: block !important;
     height: 3.85rem !important;
     width: auto !important;
-    margin-top: 0.85rem !important;
-    transform: scale(4);
+    margin-top: -2.1rem !important;
+    transform: translateY(-0.9rem) scale(4);
     transform-origin: left top;
   }
 
@@ -678,7 +678,7 @@ body.design-inspiration .header__heading-link--brand {
   body.design-inspiration .header--top-left .header__heading,
   body.design-inspiration .header--top-left .header__heading-link--brand {
     margin-top: 0 !important;
-    align-self: center;
+    align-self: start;
   }
 
   body.design-inspiration .header--top-left .header__inline-menu {
