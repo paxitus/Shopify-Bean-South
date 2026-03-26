@@ -618,12 +618,17 @@ body.design-inspiration {
 }
 
 /*
- * Header logo: real dimensions + normal flow (no transform scale).
- * Overrides Bean South base negative margins so the mark sits in the brown band.
+ * Brown band: no vertical padding, no padding on logo link, ~1.5× logo vs prior clamp.
+ * Desktop (Bean South 3-row top-left): 1fr + auto(logo) + 1fr centers logo vertically in min-height band.
  */
 body.design-inspiration .header-wrapper,
 body.design-inspiration .header {
   overflow: visible;
+}
+
+body.design-inspiration .header.page-width {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 body.design-inspiration .header__heading {
@@ -637,8 +642,9 @@ body.design-inspiration .header__inline-menu {
 }
 
 body.design-inspiration .header__heading-link--brand {
-  padding-top: 0.25rem !important;
-  padding-bottom: 0.25rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 0;
 }
 
 body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
@@ -648,9 +654,15 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 
 @media screen and (max-width: 989px) {
   body.design-inspiration .header__brand-logo--full {
-    height: clamp(7.5rem, 22vw, 11rem) !important;
+    height: clamp(11.25rem, 28vw, 16.5rem) !important;
     width: auto !important;
-    max-width: min(92vw, 48rem);
+    max-width: min(94vw, 52rem);
+  }
+
+  body.design-inspiration .header.page-width {
+    min-height: clamp(10.5rem, 32vh, 17rem);
+    align-content: center;
+    row-gap: 0;
   }
 }
 
@@ -662,20 +674,19 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 
   body.design-inspiration .header__brand-logo--full {
     display: block !important;
-    height: clamp(10.25rem, 12vw, 15.5rem) !important;
+    height: clamp(15.4rem, 18vw, 23.2rem) !important;
     width: auto !important;
     max-width: 100%;
   }
 
   body.design-inspiration .header__heading-link--brand {
-    gap: 0.2rem;
+    gap: 0;
   }
 
-  /* Undo theme base.css pull-up on top-left header */
   body.design-inspiration .header--top-left .header__heading,
   body.design-inspiration .header--top-left .header__heading-link--brand {
     margin-top: 0 !important;
-    padding-top: 0 !important;
+    padding: 0 !important;
     align-self: center;
   }
 
@@ -690,9 +701,11 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 
   body.design-inspiration .header--top-left {
     align-items: center;
-    padding-top: 0.55rem !important;
-    padding-bottom: 0.55rem !important;
-    row-gap: 0.35rem;
+    row-gap: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: clamp(14rem, 28vh, 22rem);
+    grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
   }
 }
 
