@@ -175,6 +175,10 @@
   justify-content: center;
 }
 
+.footer__list-social.list-social {
+  gap: 1.2rem;
+}
+
 .footer-block__newsletter {
   text-align: center;
   flex-grow: 1;

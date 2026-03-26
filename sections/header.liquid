@@ -386,15 +386,30 @@
 
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const delta = scrollTop - this.currentScrollTop;
+      const directionThreshold = 6;
 
       if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 
+      /*
+       * Prevent rapid direction thrash on tiny wheel/touch jitter.
+       * Without this, classes can bounce between scrolling-up/down and cause layout flicker.
+       */
+      if (Math.abs(delta) < directionThreshold && scrollTop > this.headerBounds.bottom) {
+        this.currentScrollTop = scrollTop;
+        return;
+      }
+
       if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
         this.header.classList.add('scrolled-past-header');
+        this.header.classList.add('scrolling-down');
+        this.header.classList.remove('scrolling-up');
         if (this.preventHide) return;
         requestAnimationFrame(this.hide.bind(this));
       } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
         this.header.classList.add('scrolled-past-header');
+        this.header.classList.add('scrolling-up');
+        this.header.classList.remove('scrolling-down');
         if (!this.preventReveal) {
           requestAnimationFrame(this.reveal.bind(this));
         } else {
@@ -408,6 +423,7 @@
         }
       } else if (scrollTop <= this.headerBounds.top) {
         this.header.classList.remove('scrolled-past-header');
+        this.header.classList.remove('scrolling-down', 'scrolling-up');
         requestAnimationFrame(this.reset.bind(this));
       }
 

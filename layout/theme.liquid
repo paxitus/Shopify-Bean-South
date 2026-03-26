@@ -86,6 +86,14 @@
       {{ body_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
+      @font-face {
+        font-family: 'Cocogoose Letterpress';
+        src: url('{{ "cocogoose_letterpress/CocogooseProLetterpress-UltraComp.woff2" | asset_url }}') format('woff2'),
+          url('{{ "cocogoose_letterpress/CocogooseProLetterpress-UltraComp.woff" | asset_url }}') format('woff');
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+      }
 
       {% for scheme in settings.color_schemes -%}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
@@ -310,6 +318,15 @@
       <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
       {% comment %}theme-check-enable AssetPreload{% endcomment %}
     {%- endunless -%}
+    {% comment %}theme-check-disable AssetPreload{% endcomment %}
+    <link
+      rel="preload"
+      as="font"
+      href="{{ 'cocogoose_letterpress/CocogooseProLetterpress-UltraComp.woff2' | asset_url }}"
+      type="font/woff2"
+      crossorigin
+    >
+    {% comment %}theme-check-enable AssetPreload{% endcomment %}
 
     {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
       {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}

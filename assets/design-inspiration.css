@@ -84,7 +84,7 @@ body.design-inspiration .header-wrapper .list-menu__item--link {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  font-size: 1.3rem;
+  font-size: 1.65rem;
 }
 
 body.design-inspiration .header-wrapper .header__menu-item:hover,
@@ -123,8 +123,8 @@ body.design-inspiration .header__shop-now-wrap {
 body.design-inspiration .header__shop-now {
   --color-button: 255, 199, 44;
   --color-button-text: 13, 13, 13;
-  min-height: 4.4rem;
-  padding: 0 1.8rem;
+  min-height: 4rem;
+  padding: 0 1.6rem;
   font-family: var(--bs-billboard);
   font-weight: 400;
   font-size: 1.65rem;
@@ -171,7 +171,7 @@ body.design-inspiration .banner__media::after {
 }
 
 body.design-inspiration .banner__heading {
-  font-family: var(--bs-billboard);
+  font-family: 'Cocogoose Letterpress', var(--font-heading-family), sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -634,6 +634,7 @@ body.design-inspiration .header.page-width {
 body.design-inspiration .header__heading {
   position: relative;
   z-index: 3;
+  margin: 0;
 }
 
 body.design-inspiration .header__inline-menu {
@@ -667,6 +668,31 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 }
 
 @media screen and (min-width: 990px) {
+  /*
+   * Dawn’s .page-width caps at --page-width (e.g. 1200px) and centers with margin: auto.
+   * On 1920px+ that leaves a huge empty band inside the full-bleed brown/red bars — logo and
+   * marquee look “pushed in”. Span full width here with modest horizontal padding only.
+   */
+  body.design-inspiration .header:not(.drawer-menu).page-width,
+  body.design-inspiration .announcement-bar-section .utility-bar .utility-bar__grid.page-width {
+    max-width: none !important;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: clamp(1.6rem, 3vw, 3.6rem) !important;
+    padding-right: clamp(1.6rem, 3vw, 3.6rem) !important;
+  }
+
+  body.design-inspiration .utility-bar__grid .announcement-bar.announcement-bar--marquee {
+    justify-content: center;
+  }
+
+  body.design-inspiration .announcement-bar--marquee .announcement-bar__marquee-wrapper {
+    max-width: min(96rem, 92vw);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   body.design-inspiration .header__brand-logo--icon,
   body.design-inspiration .header__brand-name {
     display: none !important;
@@ -674,33 +700,43 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 
   body.design-inspiration .header__brand-logo--full {
     display: block !important;
-    height: 20rem !important;
+    height: clamp(20rem, 24vw, 25rem) !important;
     width: auto !important;
     max-width: 100%;
+    transition: height 220ms ease, transform 220ms ease;
   }
 
   body.design-inspiration .header__heading-link--brand {
     gap: 0;
   }
 
-  /* Two columns: logo (spans both rows) | icons, then nav */
+  /*
+   * Clean desktop layout:
+   * - two columns
+   * - left: logo centered vertically
+   * - right: utilities on top, nav below
+   */
   body.design-inspiration .header--top-left:not(.drawer-menu) {
     grid-template-areas:
       'heading icons'
       'heading navigation';
-    grid-template-columns: auto minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    align-items: center;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto;
+    align-items: stretch;
     column-gap: 1.5rem;
-    row-gap: 0.2rem;
-    min-height: unset !important;
+    row-gap: 0;
+    height: 220px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    transition: height 220ms ease, min-height 220ms ease, max-height 220ms ease;
   }
 
   body.design-inspiration .header--top-left:not(.drawer-menu) .header__heading,
   body.design-inspiration .header--top-left:not(.drawer-menu) .header__heading-link--brand {
     margin-top: 0 !important;
+    margin-bottom: 0 !important;
     padding: 0 !important;
     justify-self: start;
     align-self: center;
@@ -708,15 +744,19 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
 
   body.design-inspiration .header--top-left:not(.drawer-menu) .header__icons {
     justify-self: end;
-    align-self: center;
+    align-self: start;
+    padding-top: 0.4rem;
   }
 
   body.design-inspiration .header--top-left:not(.drawer-menu) .header__inline-menu {
     margin-top: 0 !important;
     margin-left: 0 !important;
-    justify-self: center;
-    align-self: center;
+    justify-self: stretch;
+    align-self: end;
     width: 100%;
+    max-width: none;
+    padding-bottom: 1.2rem;
+    transition: padding-bottom 220ms ease, margin-top 220ms ease;
   }
 
   body.design-inspiration .header--top-left:not(.drawer-menu) .header__inline-menu > .list-menu--inline {
@@ -727,6 +767,112 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
     margin: 0;
     padding: 0;
     gap: 0.25rem 0.5rem;
+  }
+
+  body.design-inspiration .header--top-left:not(.drawer-menu) .header__inline-menu .list-menu__item--link,
+  body.design-inspiration .header--top-left:not(.drawer-menu) .header__inline-menu summary.list-menu__item {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+
+  body.design-inspiration .header--top-left:not(.drawer-menu) .header__menu-item {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+
+  /* Base scrolled state: compact header, small logo, utilities visible */
+  body.design-inspiration .section-header.scrolled-past-header .header--top-left:not(.drawer-menu) {
+    grid-template-areas:
+      'heading icons'
+      'heading navigation';
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto;
+    height: 170px !important;
+    min-height: 170px !important;
+    max-height: 170px !important;
+    row-gap: 0;
+  }
+
+  body.design-inspiration .section-header.scrolled-past-header .header__brand-logo--full {
+    height: clamp(8rem, 9vw, 9.6rem) !important;
+  }
+
+  body.design-inspiration .section-header.scrolled-past-header .header--top-left:not(.drawer-menu) .header__icons {
+    padding-top: 0.2rem !important;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  body.design-inspiration .section-header.scrolled-past-header .header--top-left:not(.drawer-menu) .header__inline-menu {
+    margin-top: -0.25rem !important;
+    padding-bottom: 0.4rem;
+  }
+
+  body.design-inspiration .section-header.scrolled-past-header .header--top-left:not(.drawer-menu) .header__inline-menu .list-menu__item--link,
+  body.design-inspiration .section-header.scrolled-past-header .header--top-left:not(.drawer-menu) .header__inline-menu summary.list-menu__item {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+  }
+
+  /* Scrolling down: show only main navigation (no logo, no utility/account row) */
+  body.design-inspiration .section-header.scrolled-past-header.scrolling-down .header--top-left:not(.drawer-menu) {
+    grid-template-areas: 'navigation';
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 72px !important;
+    min-height: 72px !important;
+    max-height: 72px !important;
+    align-items: center;
+    padding-bottom: 0 !important;
+  }
+
+  body.design-inspiration .section-header.scrolled-past-header.scrolling-down .header--top-left:not(.drawer-menu) .header__heading,
+  body.design-inspiration .section-header.scrolled-past-header.scrolling-down .header--top-left:not(.drawer-menu) .header__heading-link--brand,
+  body.design-inspiration .section-header.scrolled-past-header.scrolling-down .header--top-left:not(.drawer-menu) .header__icons {
+    display: none !important;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.8rem);
+  }
+
+  body.design-inspiration .section-header.scrolled-past-header.scrolling-down .header--top-left:not(.drawer-menu) .header__inline-menu {
+    grid-area: navigation;
+    align-self: center;
+    justify-self: center;
+    margin-top: 0 !important;
+    padding-bottom: 0;
+  }
+
+  /* Scrolling up: keep small logo, restore utility/account row */
+  body.design-inspiration .section-header.scrolled-past-header.scrolling-up .header--top-left:not(.drawer-menu) {
+    grid-template-areas:
+      'heading icons'
+      'heading navigation';
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto;
+    height: 170px !important;
+    min-height: 170px !important;
+    max-height: 170px !important;
+  }
+
+  body.design-inspiration .section-header.scrolled-past-header.scrolling-up .header__brand-logo--full {
+    height: clamp(16rem, 18vw, 19.2rem) !important;
+  }
+
+  body.design-inspiration .section-header.scrolled-past-header.scrolling-up .header--top-left:not(.drawer-menu) .header__heading {
+    display: block !important;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  body.design-inspiration .section-header.scrolled-past-header.scrolling-up .header--top-left:not(.drawer-menu) .header__heading-link--brand,
+  body.design-inspiration .section-header.scrolled-past-header.scrolling-up .header--top-left:not(.drawer-menu) .header__icons {
+    display: flex !important;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
   }
 }
 
@@ -753,11 +899,34 @@ body.design-inspiration .banner__box {
 }
 
 body.design-inspiration .banner__heading {
-  font-family: var(--font-heading-family);
-  font-weight: 700;
+  font-family: 'Cocogoose Letterpress', var(--font-heading-family), sans-serif;
+  font-weight: 400;
   letter-spacing: 0.03em;
   line-height: 1.04;
   color: #fff;
+}
+
+@media screen and (max-width: 749px) {
+  /* Keep hero copy over image on mobile, even when banner is set to mobile-bottom */
+  body.design-inspiration .banner--mobile-bottom:not(.banner--stacked) .banner__content {
+    order: 1;
+    position: absolute;
+    inset: 0;
+    height: auto;
+  }
+
+  body.design-inspiration .banner--mobile-bottom:not(.banner--stacked)::after,
+  body.design-inspiration .banner--mobile-bottom:not(.banner--stacked) .banner__media::after {
+    display: block !important;
+  }
+
+  body.design-inspiration .banner--mobile-bottom:not(.banner--stacked) .banner__box {
+    background: transparent !important;
+  }
+
+  body.design-inspiration .banner__heading {
+    font-size: clamp(2.8rem, 8.5vw, 4.2rem);
+  }
 }
 
 body.design-inspiration .banner__text,
