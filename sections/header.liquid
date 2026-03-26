@@ -354,6 +354,8 @@
       }
 
       this.currentScrollTop = 0;
+      this.scrollDirection = 'up';
+      this.lastDirectionChangeAt = 0;
       this.preventReveal = false;
       this.predictiveSearch = this.querySelector('predictive-search');
 
@@ -387,7 +389,9 @@
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const delta = scrollTop - this.currentScrollTop;
-      const directionThreshold = 6;
+      const directionThreshold = 12;
+      const directionLockMs = 160;
+      const now = Date.now();
 
       if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 
@@ -401,12 +405,28 @@
       }
 
       if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        if (this.scrollDirection !== 'down' && now - this.lastDirectionChangeAt < directionLockMs) {
+          this.currentScrollTop = scrollTop;
+          return;
+        }
+        if (this.scrollDirection !== 'down') {
+          this.scrollDirection = 'down';
+          this.lastDirectionChangeAt = now;
+        }
         this.header.classList.add('scrolled-past-header');
         this.header.classList.add('scrolling-down');
         this.header.classList.remove('scrolling-up');
         if (this.preventHide) return;
         requestAnimationFrame(this.hide.bind(this));
       } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        if (this.scrollDirection !== 'up' && now - this.lastDirectionChangeAt < directionLockMs) {
+          this.currentScrollTop = scrollTop;
+          return;
+        }
+        if (this.scrollDirection !== 'up') {
+          this.scrollDirection = 'up';
+          this.lastDirectionChangeAt = now;
+        }
         this.header.classList.add('scrolled-past-header');
         this.header.classList.add('scrolling-up');
         this.header.classList.remove('scrolling-down');
@@ -424,6 +444,8 @@
       } else if (scrollTop <= this.headerBounds.top) {
         this.header.classList.remove('scrolled-past-header');
         this.header.classList.remove('scrolling-down', 'scrolling-up');
+        this.scrollDirection = 'up';
+        this.lastDirectionChangeAt = now;
         requestAnimationFrame(this.reset.bind(this));
       }
 
