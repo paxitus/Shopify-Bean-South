@@ -618,16 +618,11 @@ body.design-inspiration {
 }
 
 /*
- * Header logo: ~4× visual size; layout box stays small.
- * Origin at top so scaling grows into the brown band, not up into the announcement bar.
+ * Header logo: real dimensions + normal flow (no transform scale).
+ * Overrides Bean South base negative margins so the mark sits in the brown band.
  */
 body.design-inspiration .header-wrapper,
 body.design-inspiration .header {
-  overflow: visible;
-}
-
-body.design-inspiration .header__heading,
-body.design-inspiration .header__heading-link--brand {
   overflow: visible;
 }
 
@@ -642,17 +637,20 @@ body.design-inspiration .header__inline-menu {
 }
 
 body.design-inspiration .header__heading-link--brand {
-  padding-top: 0.15rem !important;
-  padding-bottom: 0.15rem !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
+  transform: none !important;
+  margin: 0 !important;
 }
 
 @media screen and (max-width: 989px) {
   body.design-inspiration .header__brand-logo--full {
-    height: 3.5rem !important;
+    height: clamp(5.2rem, 16vw, 7.5rem) !important;
     width: auto !important;
-    margin-top: -1.35rem !important;
-    transform: translateY(-0.65rem) scale(4);
-    transform-origin: center top;
+    max-width: min(92vw, 42rem);
   }
 }
 
@@ -664,25 +662,37 @@ body.design-inspiration .header__heading-link--brand {
 
   body.design-inspiration .header__brand-logo--full {
     display: block !important;
-    height: 3.85rem !important;
+    height: clamp(6.75rem, 8.5vw, 10.25rem) !important;
     width: auto !important;
-    margin-top: -2.1rem !important;
-    transform: translateY(-0.9rem) scale(4);
-    transform-origin: left top;
+    max-width: 100%;
   }
 
   body.design-inspiration .header__heading-link--brand {
     gap: 0.2rem;
   }
 
+  /* Undo theme base.css pull-up on top-left header */
   body.design-inspiration .header--top-left .header__heading,
   body.design-inspiration .header--top-left .header__heading-link--brand {
     margin-top: 0 !important;
-    align-self: start;
+    padding-top: 0 !important;
+    align-self: center;
   }
 
   body.design-inspiration .header--top-left .header__inline-menu {
-    margin-top: -0.35rem !important;
+    margin-top: 0 !important;
+    align-self: center;
+  }
+
+  body.design-inspiration .header--top-left .header__icons {
+    align-self: center;
+  }
+
+  body.design-inspiration .header--top-left {
+    align-items: center;
+    padding-top: 0.55rem !important;
+    padding-bottom: 0.55rem !important;
+    row-gap: 0.35rem;
   }
 }
 
