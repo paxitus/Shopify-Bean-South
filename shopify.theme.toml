@@ -1,0 +1,6 @@
+# Default Shopify CLI environment for this theme (see README).
+# Run: shopify theme dev | shopify theme pull | shopify theme push
+# Override: shopify theme dev -e other --store ...
+
+[environments.default]
+store = "bean-south-coffee-2.myshopify.com"
