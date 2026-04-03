@@ -28,18 +28,18 @@
             "menu": "footer"
           }
         },
-        "contact": {
-          "type": "text",
-          "settings": {
-            "heading": "Connect with Us",
-            "subtext": "<p>506 W Forsyth St.<br>Americus, GA 31709</p><p><a href=\"mailto:beansouth@cafecampasino.com\">beansouth@cafecampasino.com</a></p><p><a href=\"tel:+12299242468\">+1 (229) 924-2468</a></p>"
-          }
-        },
         "certifications": {
           "type": "text",
           "settings": {
             "heading": "Our Standards",
             "subtext": "<p>USDA Organic<br>Fair Trade Federation<br>Certified B Corp<br>Co-op Coffees</p>"
+          }
+        },
+        "contact": {
+          "type": "text",
+          "settings": {
+            "heading": "Connect with Us",
+            "subtext": "<p>506 W Forsyth St.<br/>Americus, GA 31709</p><p><a href=\"mailto:info@beansouthcoffee.com\" title=\"send an email to Bean South Coffee\">info@beansouthcoffee.com</a></p><p><a href=\"tel:+12299242468\">+1 (229) 924-2468</a></p>"
           }
         }
       },
