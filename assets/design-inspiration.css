@@ -136,7 +136,10 @@ body.design-inspiration .header__shop-now {
 }
 
 body.design-inspiration .header__shop-now:focus-visible {
-  outline: 2px solid var(--bs-accent-yellow);
+  /* WCAG 2.2 SC 2.4.11: outline must contrast >=3:1 against adjacent colors.
+     --bs-accent-yellow (#f5c518) is only 1.04:1 vs the gold button bg (#ffc72c) — fails.
+     #0d0d0d contrasts 12.46:1 vs gold button and reads clearly on the dark header. */
+  outline: 2px solid #0d0d0d;
   outline-offset: 3px;
 }
 
@@ -333,7 +336,9 @@ body.design-inspiration.template-index .collection__view-all .button {
 }
 
 body.design-inspiration.template-index .collection__view-all .button:focus-visible {
-  outline: 3px solid #2d5016;
+  /* WCAG 2.2 SC 2.4.11: #2d5016 is only 2.10:1 vs the ink button bg (#0d0d0d) — fails.
+     Bustelo gold #ffc72c contrasts 12.46:1 vs ink and reads on the page bg. */
+  outline: 3px solid #ffc72c;
   outline-offset: 3px;
 }
 
@@ -397,8 +402,12 @@ body.design-inspiration.template-index .button[class*='add-to-cart'] {
 
 body.design-inspiration.template-index .quick-add__submit:focus-visible,
 body.design-inspiration.template-index .button[class*='add-to-cart']:focus-visible {
-  outline: 3px solid #2d5016;
-  outline-offset: 2px;
+  /* WCAG 2.2 SC 2.4.11: #2d5016 is only 2.10:1 vs the ink button bg (#0d0d0d) — fails.
+     No single color passes 3:1 against both the dark button and all four light card tints,
+     so we use a double-ring box-shadow: gold inner ring (12.46:1 vs ink button), dark outer
+     ring (16:1 vs lightest card tint). outline:none removes the default to avoid tripling. */
+  outline: none;
+  box-shadow: 0 0 0 2px #ffc72c, 0 0 0 4px #0d0d0d;
 }
 
 /* —— Blog / culture: Bustelo “Sabor” energy + Chock caps —— */
@@ -570,7 +579,9 @@ body.design-inspiration .newsletter-form__button-text {
 }
 
 body.design-inspiration .newsletter .newsletter-form__button:focus-visible {
-  outline: 2px solid var(--bs-deep-blue);
+  /* WCAG 2.2 SC 2.4.11: --bs-deep-blue (#1b2a4a) is only 2.35:1 vs the red button bg (#c41230) — fails.
+     #0d0d0d contrasts 3.22:1 vs #c41230 and 18.48:1 vs the cream newsletter bg. */
+  outline: 2px solid #0d0d0d;
   outline-offset: 2px;
 }
 
@@ -618,8 +629,11 @@ body.design-inspiration .footer .list-social__link:hover {
 }
 
 body.design-inspiration .footer .list-social__link:focus-visible {
-  outline: 2px solid var(--bs-deep-blue);
-  outline-offset: 3px;
+  /* WCAG 2.2 SC 2.4.11: --bs-deep-blue (#1b2a4a) is only 1.22:1 vs the near-black icon bg (#1a1a1a) — fails.
+     No single color passes 3:1 against both the dark icon bg and the yellow footer bg, so we
+     use a double-ring box-shadow: gold inner (11.15:1 vs icon), ink outer (13.41:1 vs footer yellow). */
+  outline: none;
+  box-shadow: 0 0 0 2px #ffc72c, 0 0 0 4px #0d0d0d;
 }
 
 @media screen and (min-width: 990px) {
@@ -1195,4 +1209,16 @@ body.design-inspiration .best-of-south__title {
 body.design-inspiration .best-of-south__excerpt {
   font-size: 1.5rem;
   font-weight: 550;
+}
+
+/* —— WCAG 2.2 SC 1.4.11: Scheme-3 primary button boundary contrast fix ——
+ * Color scheme-3 has bg #4A3728 (coffee brown). The primary button color is
+ * #2D5016 (forest green) which is only 1.22:1 against that bg — fails the
+ * 3:1 non-text UI component boundary requirement.
+ * Adding a visible border using the scheme's text color (#FFFFFF) gives the
+ * button a readable boundary without changing the theme design intent.
+ */
+body.design-inspiration .color-scheme-3 .button,
+body.design-inspiration .color-scheme-3 .button--primary {
+  border: 2px solid rgba(255, 255, 255, 0.7) !important;
 }
