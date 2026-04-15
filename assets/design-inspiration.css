@@ -919,7 +919,7 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
     min-height: unset !important;
     max-height: unset !important;
     align-items: center;
-    padding-top: 0 !important;
+    padding-top: 0.8rem !important;
     padding-bottom: 0.6rem !important;
     row-gap: 0;
   }
