@@ -286,10 +286,20 @@ body.design-inspiration .bs-cta-section .bs-btn--primary {
 body.design-inspiration .bs-cta-section .bs-btn--primary:hover {
   background-color: #E8DCC4 !important;
   border-color: #E8DCC4 !important;
+  color: #2D5016 !important;
 }
 body.design-inspiration .bs-btn--secondary-light {
   color: #FFFFFF !important;
   border-color: #FFFFFF !important;
+}
+body.design-inspiration .bs-btn--secondary-light:hover {
+  background-color: #FFFFFF !important;
+  color: #4A3728 !important;
+  border-color: #FFFFFF !important;
+}
+body.design-inspiration .bs-btn--secondary:hover {
+  background-color: #4A3728 !important;
+  color: #FFFFFF !important;
 }
 body.design-inspiration .bs-btn {
   font-size: 1.4rem !important;
