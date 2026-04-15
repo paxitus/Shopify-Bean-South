@@ -889,25 +889,39 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
     padding-bottom: 0.1rem;
   }
 
-  /* Scrolling down: show only main navigation (no logo, no utility/account row) */
+  /* Shared transitions for logo/icons row */
+  body.design-inspiration .section-header.scrolled-past-header .header--top-left:not(.drawer-menu) .header__heading,
+  body.design-inspiration .section-header.scrolled-past-header .header--top-left:not(.drawer-menu) .header__heading-link--brand,
+  body.design-inspiration .section-header.scrolled-past-header .header--top-left:not(.drawer-menu) .header__icons {
+    transition: opacity 280ms ease, transform 280ms ease;
+  }
+
+  /* Scrolling down: fade out logo + icons, collapse to nav only */
   body.design-inspiration .section-header.scrolled-past-header.scrolling-down .header--top-left:not(.drawer-menu) {
-    grid-template-areas: 'navigation';
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    height: 72px !important;
-    min-height: 72px !important;
-    max-height: 72px !important;
+    grid-template-areas:
+      'heading icons'
+      'navigation navigation';
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 0fr auto;
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
     align-items: center;
-    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0.6rem !important;
+    row-gap: 0;
   }
 
   body.design-inspiration .section-header.scrolled-past-header.scrolling-down .header--top-left:not(.drawer-menu) .header__heading,
   body.design-inspiration .section-header.scrolled-past-header.scrolling-down .header--top-left:not(.drawer-menu) .header__heading-link--brand,
   body.design-inspiration .section-header.scrolled-past-header.scrolling-down .header--top-left:not(.drawer-menu) .header__icons {
-    display: none !important;
-    opacity: 0;
+    opacity: 0 !important;
     pointer-events: none;
-    transform: translateY(-0.8rem);
+    transform: translateY(-0.6rem);
+    max-height: 0;
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   body.design-inspiration .section-header.scrolled-past-header.scrolling-down .header--top-left:not(.drawer-menu) .header__inline-menu {
@@ -918,20 +932,16 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
     padding-bottom: 0;
   }
 
-  /* Scrolling up: keep small logo, restore utility/account row */
+  /* Scrolling up: fade logo + icons back in */
   body.design-inspiration .section-header.scrolled-past-header.scrolling-up .header--top-left:not(.drawer-menu) {
     grid-template-areas:
       'heading icons'
       'navigation navigation';
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
-    height: 170px !important;
-    min-height: 170px !important;
-    max-height: 170px !important;
-  }
-
-  body.design-inspiration .section-header.scrolled-past-header.scrolling-up .header__brand-logo--full {
-    height: clamp(16rem, 18vw, 19.2rem) !important;
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
   }
 
   body.design-inspiration .section-header.scrolled-past-header.scrolling-up .header--top-left:not(.drawer-menu) .header__heading {
@@ -947,6 +957,7 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
     opacity: 1;
     pointer-events: auto;
     transform: none;
+    max-height: 200px;
   }
 }
 
