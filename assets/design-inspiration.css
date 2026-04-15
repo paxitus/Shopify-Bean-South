@@ -693,6 +693,13 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
   }
 }
 
+@media screen and (max-width: 749px) {
+  body.design-inspiration .header__heading-link--brand {
+    border: none !important;
+    padding: 0 !important;
+  }
+}
+
 @media screen and (min-width: 990px) {
   /*
    * Dawn’s .page-width caps at --page-width (e.g. 1200px) and centers with margin: auto.
