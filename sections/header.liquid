@@ -116,6 +116,11 @@
       assign has_app_block = true
     endif
   endfor
+  if section.settings.shop_now_link != blank
+    assign shop_now_href = section.settings.shop_now_link
+  else
+    assign shop_now_href = routes.all_products_collection_url
+  endif
 -%}
 
 {% liquid
@@ -160,9 +165,9 @@
         <h1 class="header__heading">
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link header__heading-link--brand link link--text focus-inset">
-        <img src="{{ 'bean-south-logo.png' | asset_url }}" alt="" class="header__brand-logo header__brand-logo--icon motion-reduce" width="320" height="261" loading="eager" aria-hidden="true">
+        <img src="{{ 'bean-icon-white.png' | asset_url }}" alt="" class="header__brand-logo header__brand-logo--icon motion-reduce" width="59" height="77" loading="eager" aria-hidden="true">
         <img src="{{ 'bean-south-logo-full.png' | asset_url }}" alt="Bean South Coffee" class="header__brand-logo header__brand-logo--full motion-reduce" width="400" height="400" loading="eager">
-        <span class="header__brand-name">Bean South<sup class="header__trademark">&#174;</sup> Coffee</span>
+        <span class="header__brand-name"><span class="header__brand-primary">Bean South</span><sup class="header__trademark">&#174;</sup> <span class="header__brand-secondary">Coffee</span></span>
       </a>
       {%- if request.page_type == 'index' -%}
         </h1>
@@ -214,6 +219,16 @@
     {%- endif -%}
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
+      {%- if section.settings.show_shop_now_button and section.settings.shop_now_label != blank -%}
+        <div class="header__shop-now-wrap small-hide medium-hide">
+          <a
+            href="{{ shop_now_href }}"
+            class="header__shop-now button button--primary focus-inset"
+          >
+            {{- section.settings.shop_now_label | escape -}}
+          </a>
+        </div>
+      {%- endif -%}
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <localization-form class="small-hide medium-hide" data-prevent-hide>
@@ -339,6 +354,8 @@
       }
 
       this.currentScrollTop = 0;
+      this.scrollDirection = 'up';
+      this.lastDirectionChangeAt = 0;
       this.preventReveal = false;
       this.predictiveSearch = this.querySelector('predictive-search');
 
@@ -371,15 +388,48 @@
 
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const delta = scrollTop - this.currentScrollTop;
+      const directionThreshold = 12;
+      const directionLockMs = 160;
+      const now = Date.now();
 
       if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 
+      /*
+       * Prevent rapid direction thrash on tiny wheel/touch jitter.
+       * Without this, classes can bounce between scrolling-up/down and cause layout flicker.
+       */
+      if (Math.abs(delta) < directionThreshold && scrollTop > this.headerBounds.bottom) {
+        this.currentScrollTop = scrollTop;
+        return;
+      }
+
       if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        if (this.scrollDirection !== 'down' && now - this.lastDirectionChangeAt < directionLockMs) {
+          this.currentScrollTop = scrollTop;
+          return;
+        }
+        if (this.scrollDirection !== 'down') {
+          this.scrollDirection = 'down';
+          this.lastDirectionChangeAt = now;
+        }
         this.header.classList.add('scrolled-past-header');
+        this.header.classList.add('scrolling-down');
+        this.header.classList.remove('scrolling-up');
         if (this.preventHide) return;
         requestAnimationFrame(this.hide.bind(this));
       } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        if (this.scrollDirection !== 'up' && now - this.lastDirectionChangeAt < directionLockMs) {
+          this.currentScrollTop = scrollTop;
+          return;
+        }
+        if (this.scrollDirection !== 'up') {
+          this.scrollDirection = 'up';
+          this.lastDirectionChangeAt = now;
+        }
         this.header.classList.add('scrolled-past-header');
+        this.header.classList.add('scrolling-up');
+        this.header.classList.remove('scrolling-down');
         if (!this.preventReveal) {
           requestAnimationFrame(this.reveal.bind(this));
         } else {
@@ -393,6 +443,9 @@
         }
       } else if (scrollTop <= this.headerBounds.top) {
         this.header.classList.remove('scrolled-past-header');
+        this.header.classList.remove('scrolling-down', 'scrolling-up');
+        this.scrollDirection = 'up';
+        this.lastDirectionChangeAt = now;
         requestAnimationFrame(this.reset.bind(this));
       }
 
@@ -513,6 +566,28 @@
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "header",
+      "content": "Primary call to action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shop_now_button",
+      "default": true,
+      "label": "Show Shop Now button"
+    },
+    {
+      "type": "text",
+      "id": "shop_now_label",
+      "default": "Shop Now",
+      "label": "Shop Now label"
+    },
+    {
+      "type": "url",
+      "id": "shop_now_link",
+      "label": "Shop Now link",
+      "info": "Defaults to the all-products collection if empty."
     },
     {
       "type": "select",

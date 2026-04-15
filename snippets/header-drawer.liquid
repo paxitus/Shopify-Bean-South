@@ -23,6 +23,20 @@
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation" aria-label="Main">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
+              {%- if section.settings.show_shop_now_button and section.settings.shop_now_label != blank -%}
+                {%- liquid
+                  if section.settings.shop_now_link != blank
+                    assign drawer_shop_href = section.settings.shop_now_link
+                  else
+                    assign drawer_shop_href = routes.all_products_collection_url
+                  endif
+                -%}
+                <li class="menu-drawer__shop-now-item">
+                  <a href="{{ drawer_shop_href }}" class="menu-drawer__shop-now button button--primary focus-inset">
+                    {{- section.settings.shop_now_label | escape -}}
+                  </a>
+                </li>
+              {%- endif -%}
               {%- for link in section.settings.menu.links -%}
                 <li>
                   {%- if link.links != blank -%}

@@ -15,26 +15,26 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Fresh Roasted Coffee from the Heart of Georgia",
+            "heading": "Celebrating the Best of the South",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Handcrafted in small batches · Americus, Georgia",
+            "text": "Fair trade, organic coffee \u2014 roasted in Americus, Georgia. Bold flavor, Southern soul.",
             "text_style": "subtitle"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP FRESH ROASTED COFFEE",
+            "button_label_1": "Shop Our Coffee",
             "button_link_1": "#products",
             "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_label_2": "Explore the South",
+            "button_link_2": "/blogs/southern-culture",
+            "button_style_secondary_2": true
           }
         }
       },
@@ -45,16 +45,47 @@
       ],
       "settings": {
         "image": "",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 50,
         "image_height": "large",
         "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "scheme-1",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
         "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
+        "mobile_content_alignment": "left",
         "show_text_below": true
+      }
+    },
+    "brand_story": {
+      "type": "rich-text",
+      "blocks": {
+        "story_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "From Georgia to the small-scale coffee farmers who inspire us",
+            "heading_size": "h2"
+          }
+        },
+        "story_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Bean South connects the <strong>American South</strong> we call home with the <strong>Global South</strong> where coffee is grown. From Georgia outward, we honor small-scale farmers, craft roasting, and everyday Southern hospitality in every cup.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "story_heading",
+        "story_text"
+      ],
+      "settings": {
+        "section_id": "brand-story",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 52
       }
     },
     "featured_collection": {
@@ -62,24 +93,24 @@
       "settings": {
         "collection": "frontpage",
         "products_to_show": 4,
-        "title": "Our Fresh Roasted Coffee",
+        "title": "Our Coffee",
         "heading_size": "h2",
-        "description": "",
-        "show_description": false,
+        "description": "<p>Roasted in small batches with bold Southern character. Choose your roast and grind to make it your own.</p>",
+        "show_description": true,
         "description_style": "body",
         "columns_desktop": 4,
         "enable_desktop_slider": false,
-        "full_width": false,
+        "full_width": true,
         "show_view_all": true,
         "view_all_style": "solid",
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "1",
+        "quick_add": "standard",
+        "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 40,
         "padding_bottom": 64
@@ -116,8 +147,8 @@
         "blog-southern-sights"
       ],
       "settings": {
-        "heading": "Best of the South",
-        "heading_size": "h1",
+        "heading": "Celebrate the Best of the South: recipes, culture, stories, and more",
+        "heading_size": "h2",
         "home_tag": "home",
         "posts_to_show": 4,
         "show_image": true,
@@ -126,11 +157,46 @@
         "padding_top": 40,
         "padding_bottom": 64
       }
+    },
+    "home_newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "nl_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join Our Southern Community",
+            "heading_size": "h1"
+          }
+        },
+        "nl_para": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Wherever you live, stay connected to Southern recipes, culture, and early access to coffee releases.</p>"
+          }
+        },
+        "nl_form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "nl_heading",
+        "nl_para",
+        "nl_form"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
     }
   },
   "order": [
     "image_banner",
+    "brand_story",
     "featured_collection",
-    "best_of_the_south"
+    "best_of_the_south",
+    "home_newsletter"
   ]
 }

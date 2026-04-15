@@ -3100,25 +3100,20 @@ details-disclosure > details {
   display: block;
 }
 
-/* Mobile: show full text-logo, hide icon + text span */
+/* Hide stacked logo — horizontal layout used everywhere now */
 .header__brand-logo--full {
   display: none;
 }
 
 @media screen and (max-width: 989px) {
   .header__brand-logo--icon {
-    display: none;
-  }
-  .header__brand-logo--full {
-    display: block;
-    height: 128px;
-    width: auto;
+    height: 48px;
   }
   .header__brand-name {
-    display: none;
+    font-size: 1.6rem;
   }
   .header__heading-link--brand {
-    gap: 0;
+    gap: 0.8rem;
   }
 }
 
@@ -3130,13 +3125,14 @@ details-disclosure > details {
 }
 
 .header__brand-name {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 2.8rem;
-  letter-spacing: 0.04em;
+  font-family: 'Cocogoose Letterpress', var(--font-heading-family), sans-serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-coffee-brown);
   line-height: 1;
+  white-space: nowrap;
 }
 
 /* Bean South: icons at top, logo on its own row, nav below */
@@ -3369,16 +3365,31 @@ details-disclosure > details {
   margin-top: 4rem;
 }
 
-/* Bean South: hero banner heading */
+/* Bean South: hero banner — use section color scheme text (readable on any banner background) */
 .banner__heading {
-  color: var(--color-coffee-brown);
+  color: rgb(var(--color-foreground));
   text-transform: uppercase;
-  font-family: var(--font-heading);
-  font-weight: 700;
+  font-family: 'Cocogoose Letterpress', var(--font-heading-family), sans-serif;
+  font-weight: 400;
 }
+
+h1,
+h2,
+.h1,
+.h2 {
+  font-family: 'Cocogoose Letterpress', var(--font-heading-family), sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .banner__text {
-  color: var(--color-black);
+  color: rgba(var(--color-foreground), 0.92);
   font-family: var(--font-body);
+}
+
+.banner__text.subtitle {
+  color: rgba(var(--color-foreground), 0.95);
 }
 
 @media screen and (forced-colors: active) {

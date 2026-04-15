@@ -14,38 +14,47 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "brand_information": {
-          "type": "brand_information",
-          "settings": {
-            "show_social": false
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "heading": "Contact",
-            "subtext": "<p>506 W Forsyth St.<br>Americus, GA 31709</p><p><a href=\"mailto:beansouth@cafecampasino.com\">beansouth@cafecampasino.com</a></p>"
-          }
-        },
-        "link_list": {
+        "link_navigate": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
+            "heading": "Navigate",
+            "menu": "main-menu"
+          }
+        },
+        "link_categories": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Categories",
             "menu": "footer"
+          }
+        },
+        "certifications": {
+          "type": "text",
+          "settings": {
+            "heading": "Our Standards",
+            "subtext": "<p>USDA Organic<br>Fair Trade Federation<br>Certified B Corp<br>Co-op Coffees</p>"
+          }
+        },
+        "contact": {
+          "type": "text",
+          "settings": {
+            "heading": "Connect with Us",
+            "subtext": "<p>506 W Forsyth St.<br/>Americus, GA 31709</p><p><a href=\"mailto:info@beansouthcoffee.com\" title=\"send an email to Bean South Coffee\">info@beansouthcoffee.com</a></p><p><a href=\"tel:+12299242468\">+1 (229) 924-2468</a></p>"
           }
         }
       },
       "block_order": [
-        "brand_information",
-        "text",
-        "link_list"
+        "link_navigate",
+        "link_categories",
+        "certifications",
+        "contact"
       ],
       "settings": {
         "color_scheme": "scheme-3",
         "newsletter_enable": false,
         "newsletter_heading": "Subscribe",
         "enable_follow_on_shop": false,
-        "show_social": false,
+        "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": true,

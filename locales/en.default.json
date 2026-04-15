@@ -347,6 +347,9 @@
     "video": {
       "load_video": "Load video: {{ description }}"
     },
+    "image_banner": {
+      "default_hero_alt": "Roasted coffee beans and a warm cup in Southern golden light — Bean South Coffee, Georgia"
+    },
     "slideshow": {
       "load_slide": "Load slide",
       "previous_slideshow": "Previous slide",

@@ -56,8 +56,8 @@
               assign footer_grid_class = 'grid--3-col-tablet'
             elsif section.blocks.size > 6
               assign footer_grid_class = 'grid--4-col-desktop'
-            elsif section.blocks.size > 4
-              assign footer_grid_class = 'grid--3-col-tablet'
+            elsif section.blocks.size >= 4
+              assign footer_grid_class = 'grid--4-col-desktop'
             endif
           -%}
           <div
@@ -209,6 +209,7 @@
                       <span class="svg-wrapper">
                         {{- 'icon-arrow.svg' | inline_asset_content -}}
                       </span>
+                      <span class="newsletter-form__button-text">{{ 'newsletter.button_label' | t }}</span>
                     </button>
                   </div>
                   {%- if form.errors -%}
