@@ -922,9 +922,9 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
   body.design-inspiration .section-header.scrolled-past-header.scrolling-up .header--top-left:not(.drawer-menu) {
     grid-template-areas:
       'heading icons'
-      'heading navigation';
+      'navigation navigation';
     grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto auto;
     height: 170px !important;
     min-height: 170px !important;
     max-height: 170px !important;
