@@ -267,6 +267,34 @@ body.design-inspiration #brand-story .rich-text__text a {
   color: var(--bs-chock-red);
 }
 
+/* —— Button contrast overrides for page content —— */
+body.design-inspiration .bs-btn--primary {
+  background-color: #E8DCC4 !important;
+  color: #4A3728 !important;
+  border-color: #E8DCC4 !important;
+}
+body.design-inspiration .bs-btn--primary:hover {
+  background-color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  color: #4A3728 !important;
+}
+body.design-inspiration .bs-cta-section .bs-btn--primary {
+  background-color: #FFFFFF !important;
+  color: #2D5016 !important;
+  border-color: #FFFFFF !important;
+}
+body.design-inspiration .bs-cta-section .bs-btn--primary:hover {
+  background-color: #E8DCC4 !important;
+  border-color: #E8DCC4 !important;
+}
+body.design-inspiration .bs-btn--secondary-light {
+  color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+}
+body.design-inspiration .bs-btn {
+  font-size: 1.4rem !important;
+}
+
 body.design-inspiration #brand-story .rich-text__text {
   font-size: 1.65rem;
   line-height: 1.65;
