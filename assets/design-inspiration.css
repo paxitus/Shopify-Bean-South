@@ -825,7 +825,7 @@ body.design-inspiration .header__heading-link--brand .header__brand-logo--full {
   body.design-inspiration .header--top-left:not(.drawer-menu) .header__inline-menu {
     margin-top: 0 !important;
     margin-left: 0 !important;
-    justify-self: end;
+    justify-self: center;
     align-self: center;
     width: auto;
     max-width: none;
